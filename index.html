@@ -12,30 +12,29 @@
         *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
         :root {
-            --lavender: #D4B8E0;
-            --lavender-soft: #F3EAF7;
-            --lavender-deep: #9B6BB0;
-            --mint: #B8D8C8;
-            --mint-soft: #E4F0E8;
-            --mint-deep: #5DA07A;
-            --peach: #F5C6AA;
-            --peach-soft: #FDF0E8;
-            --peach-deep: #D4845A;
-            --sky: #C3D5E8;
-            --sky-soft: #EAF0F7;
-            --butter: #F0D89A;
-            --butter-soft: #FBF3DC;
-            --rose: #E8B4B8;
-            --rose-soft: #FAE8EA;
-            --terracotta: #CC8B6E;
-            --bg: #FBF9F7;
-            --bg-card: #FFFFFF;
-            --bg-hero: #FBF5F0;
-            --text: #2D2420;
-            --text-secondary: #6E605A;
-            --text-muted: #A89890;
-            --border: #EDE5DF;
-            --border-hover: #DDD3CB;
+            --terracotta: #C4784D;
+            --terracotta-soft: #FAEDE4;
+            --terracotta-deep: #A85D35;
+            --sage: #A8BFA0;
+            --sage-soft: #E8F0E4;
+            --sage-deep: #6B8C5E;
+            --amber: #D4A653;
+            --amber-soft: #FBF2DC;
+            --amber-deep: #B8872E;
+            --sand: #D4C4A8;
+            --sand-soft: #F5F0E8;
+            --clay: #C4946E;
+            --clay-soft: #F7EDE4;
+            --warm-brown: #8B6E52;
+            --olive: #8B9E6B;
+            --bg: #FDF9F5;
+            --bg-card: #FFFDFB;
+            --bg-hero: #FDF6EF;
+            --text: #3D2E22;
+            --text-secondary: #6E5A4A;
+            --text-muted: #A89480;
+            --border: #EDE4D8;
+            --border-hover: #DDD0C0;
         }
 
         html { scroll-behavior: smooth; }
@@ -63,7 +62,7 @@
             left: 0;
             right: 0;
             z-index: 100;
-            background: rgba(251, 249, 247, 0.85);
+            background: rgba(253, 249, 245, 0.88);
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
             border-bottom: 1px solid var(--border);
@@ -106,7 +105,7 @@
         .nav-links a:hover { color: var(--text); }
 
         .nav-cta {
-            background: var(--lavender-deep);
+            background: var(--terracotta);
             color: #fff !important;
             padding: 0.45rem 1.1rem;
             border-radius: 8px;
@@ -115,7 +114,7 @@
             transition: background 0.2s, transform 0.15s;
         }
 
-        .nav-cta:hover { background: #8B5A9E; transform: translateY(-1px); }
+        .nav-cta:hover { background: var(--terracotta-deep); transform: translateY(-1px); }
 
         .hamburger {
             display: none;
@@ -151,9 +150,9 @@
             position: absolute;
             inset: 0;
             background:
-                radial-gradient(ellipse 70% 50% at 20% 20%, rgba(245, 198, 170, 0.3) 0%, transparent 70%),
-                radial-gradient(ellipse 60% 40% at 80% 30%, rgba(212, 184, 224, 0.2) 0%, transparent 60%),
-                radial-gradient(ellipse 50% 40% at 50% 80%, rgba(232, 180, 184, 0.15) 0%, transparent 60%);
+                radial-gradient(ellipse 70% 50% at 20% 20%, rgba(212, 166, 83, 0.15) 0%, transparent 70%),
+                radial-gradient(ellipse 60% 40% at 80% 30%, rgba(196, 120, 77, 0.12) 0%, transparent 60%),
+                radial-gradient(ellipse 50% 40% at 50% 80%, rgba(168, 191, 160, 0.1) 0%, transparent 60%);
         }
 
         .hero-content {
@@ -180,7 +179,7 @@
         .hero-badge-dot {
             width: 6px;
             height: 6px;
-            background: var(--mint-deep);
+            background: var(--olive);
             border-radius: 50%;
             animation: pulse 2s ease-in-out infinite;
         }
@@ -198,7 +197,7 @@
         }
 
         .hero h1 .gradient-text {
-            background: linear-gradient(135deg, var(--terracotta), var(--lavender-deep));
+            background: linear-gradient(135deg, var(--terracotta), var(--amber));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -238,12 +237,12 @@
         .btn:hover { transform: translateY(-1px); }
 
         .btn-primary {
-            background: var(--lavender-deep);
+            background: var(--terracotta);
             color: #fff;
-            box-shadow: 0 4px 20px rgba(155, 107, 176, 0.2);
+            box-shadow: 0 4px 20px rgba(196, 120, 77, 0.2);
         }
 
-        .btn-primary:hover { background: #8B5A9E; }
+        .btn-primary:hover { background: var(--terracotta-deep); }
 
         .btn-outline {
             background: var(--bg-card);
@@ -251,7 +250,7 @@
             border: 1px solid var(--border);
         }
 
-        .btn-outline:hover { border-color: var(--border-hover); background: #f9f8fc; }
+        .btn-outline:hover { border-color: var(--border-hover); background: #FDF9F5; }
 
         /* ── Sections ── */
         section { padding: 5rem 2rem; }
@@ -271,7 +270,7 @@
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 0.12em;
-            color: var(--lavender-deep);
+            color: var(--terracotta);
             margin-bottom: 0.75rem;
         }
 
@@ -351,9 +350,9 @@
             margin-bottom: 1.25rem;
         }
 
-        .purpose-icon.learn { background: var(--lavender-soft); }
-        .purpose-icon.connect { background: var(--mint-soft); }
-        .purpose-icon.grow { background: var(--butter-soft); }
+        .purpose-icon.learn { background: var(--terracotta-soft); }
+        .purpose-icon.connect { background: var(--sage-soft); }
+        .purpose-icon.grow { background: var(--amber-soft); }
 
         .purpose-card h3 {
             font-size: 1.1rem;
@@ -364,7 +363,7 @@
 
         /* ── Meetups ── */
         #meetups {
-            background: var(--lavender-soft);
+            background: var(--sand-soft);
         }
 
         .meetup-list { display: flex; flex-direction: column; gap: 1rem; max-width: 720px; margin: 0 auto; }
@@ -397,7 +396,7 @@
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 0.1em;
-            color: var(--lavender-deep);
+            color: var(--terracotta);
         }
 
         .meetup-date .day {
@@ -420,8 +419,8 @@
             margin-bottom: 0.4rem;
         }
 
-        .meetup-tag.special { background: var(--peach-soft); color: var(--peach-deep); }
-        .meetup-tag.regular { background: var(--mint-soft); color: var(--mint-deep); }
+        .meetup-tag.special { background: var(--terracotta-soft); color: var(--terracotta); }
+        .meetup-tag.regular { background: var(--sage-soft); color: var(--sage-deep); }
 
         .meetup-meta {
             display: flex;
@@ -434,7 +433,7 @@
 
         /* ── Founding Members CTA ── */
         .founding {
-            background: linear-gradient(135deg, var(--peach-soft) 0%, var(--rose-soft) 40%, var(--lavender-soft) 100%);
+            background: linear-gradient(135deg, var(--amber-soft) 0%, var(--terracotta-soft) 40%, var(--sage-soft) 100%);
         }
 
         .founding-inner {
@@ -464,7 +463,7 @@
         .founding-inner .witty-name {
             font-family: 'Space Grotesk', sans-serif;
             font-weight: 700;
-            background: linear-gradient(135deg, var(--terracotta), var(--lavender-deep));
+            background: linear-gradient(135deg, var(--terracotta), var(--amber));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -523,8 +522,8 @@
             gap: 0.4rem;
             padding: 0.35rem 0.8rem;
             border-radius: 50px;
-            background: var(--peach-soft);
-            color: var(--terracotta);
+            background: var(--sage-soft);
+            color: var(--sage-deep);
             font-size: 0.8rem;
             font-weight: 600;
             margin-bottom: 1rem;
@@ -589,7 +588,7 @@
                 top: 64px;
                 left: 0;
                 right: 0;
-                background: rgba(251, 249, 247, 0.97);
+                background: rgba(253, 249, 245, 0.97);
                 padding: 1.5rem 2rem;
                 gap: 1rem;
                 border-bottom: 1px solid var(--border);
@@ -679,21 +678,21 @@
         <div class="purpose-grid">
             <div class="purpose-card">
                 <div class="purpose-icon learn">
-                    <svg width="22" height="22" fill="none" stroke="#9B6BB0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+                    <svg width="22" height="22" fill="none" stroke="#C4784D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
                 </div>
                 <h3>Learn</h3>
                 <p>Hands-on workshops, talks, and study groups covering topics in Software, AI, ethics, and engineering, diversity &amp; inclusion, sustainable tech and others.</p>
             </div>
             <div class="purpose-card">
                 <div class="purpose-icon connect">
-                    <svg width="22" height="22" fill="none" stroke="#5DA07A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                    <svg width="22" height="22" fill="none" stroke="#6B8C5E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
                 </div>
                 <h3>Connect</h3>
                 <p>Build a network with like minded professionals, build your portfolio, find mentors, land opportunities, and shape your career right here in Goa.</p>
             </div>
             <div class="purpose-card">
                 <div class="purpose-icon grow">
-                    <svg width="22" height="22" fill="none" stroke="#C4884D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+                    <svg width="22" height="22" fill="none" stroke="#B8872E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
                 </div>
                 <h3>Grow</h3>
                 <p>Level up your skills, take on new challenges, and grow your career with a community that has your back.</p>
