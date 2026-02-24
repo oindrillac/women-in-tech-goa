@@ -367,9 +367,73 @@
 
         .purpose-card p { color: var(--text-secondary); font-size: 0.925rem; line-height: 1.7; }
 
+        /* ── Why This Matters ── */
+        #why { background: var(--sand-soft); }
+
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.25rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .why-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 1.75rem;
+            transition: border-color 0.3s, transform 0.2s, box-shadow 0.3s;
+        }
+
+        .why-card:hover {
+            border-color: var(--border-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+        }
+
+        .why-source {
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--terracotta);
+            margin-bottom: 0.75rem;
+            display: block;
+        }
+
+        .why-card p {
+            color: var(--text-secondary);
+            font-size: 0.925rem;
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+
+        .why-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--terracotta);
+            transition: color 0.2s;
+        }
+
+        .why-link:hover { color: var(--terracotta-deep); }
+
+        .why-card:nth-child(5) {
+            grid-column: 1 / -1;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .why-grid { grid-template-columns: 1fr; }
+            .why-card:nth-child(5) { grid-column: auto; text-align: left; }
+        }
+
         /* ── Meetups ── */
         #meetups {
-            background: var(--sand-soft);
+            background: var(--bg);
         }
 
         .meetup-list { display: flex; flex-direction: column; gap: 1rem; max-width: 720px; margin: 0 auto; }
@@ -642,6 +706,7 @@
         </a>
         <ul class="nav-links" id="navLinks">
             <li><a href="#about">About</a></li>
+            <li><a href="#why">Why</a></li>
             <li><a href="#meetups">Meetups</a></li>
             <li><a href="#community">Community</a></li>
             <li><a href="https://forms.gle/dXQgtnwmjTtkHCodA" target="_blank" class="nav-cta">Become a Founding Member</a></li>
@@ -690,7 +755,7 @@
         <div class="section-header">
             <p class="section-label">About WitG</p>
             <h2 class="section-title">Why WittyGirls?</h2>
-            <p class="section-subtitle">Technology should be shaped by everyone. WitG creates a supportive and kind space for women in Goa to learn, build, and grow together.</p>
+            <p class="section-subtitle">Technology should be shaped by everyone. WitG creates a supportive and kind space for women and non-binary folks in Goa to learn, build, and grow together.</p>
         </div>
 
         <div class="purpose-grid">
@@ -714,6 +779,64 @@
                 </div>
                 <h3>Grow</h3>
                 <p>Level up your skills, take on new challenges, and grow your career with a community that has your back.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ── Why This Matters ── -->
+<section id="why">
+    <div class="section-inner">
+        <div class="section-header">
+            <p class="section-label">The Why</p>
+            <h2 class="section-title">Why This Space Is Needed</h2>
+            <p class="section-subtitle">The research is clear. Communities like WitG are not just nice to have, they are essential.</p>
+        </div>
+
+        <div class="why-grid">
+            <div class="why-card">
+                <span class="why-source">McKinsey & Lean In</span>
+                <p>The "broken rung" at the first promotion to manager is the single biggest barrier to women's advancement in tech. For every 100 men promoted in technical roles, far fewer women make the same leap, creating a gap that widens at every level.</p>
+                <a href="https://www.mckinsey.com/featured-insights/diversity-and-inclusion/women-in-the-workplace" target="_blank" class="why-link">
+                    Read the report
+                    <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 1h8v8"/><path d="M13 1 1 13"/></svg>
+                </a>
+            </div>
+
+            <div class="why-card">
+                <span class="why-source">World Economic Forum</span>
+                <p>At the current rate of progress, it will take over 100 years to close the global gender gap. Technology and STEM fields remain among the sectors where women are most severely underrepresented in leadership.</p>
+                <a href="https://www.weforum.org/publications/global-gender-gap-report-2025/" target="_blank" class="why-link">
+                    Read the report
+                    <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 1h8v8"/><path d="M13 1 1 13"/></svg>
+                </a>
+            </div>
+
+            <div class="why-card">
+                <span class="why-source">NASSCOM India</span>
+                <p>Women make up a significant share of entry-level hires in India's IT industry, yet their participation drops sharply over time, pointing to a massive retention and career progression crisis specific to India's tech sector.</p>
+                <a href="https://www.nasscom.in/knowledge-center/publications/women-and-it-scorecard-india" target="_blank" class="why-link">
+                    Read the report
+                    <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 1h8v8"/><path d="M13 1 1 13"/></svg>
+                </a>
+            </div>
+
+            <div class="why-card">
+                <span class="why-source">Deloitte</span>
+                <p>Women's representation in tech drops sharply at each career stage from entry-level to the C-suite. However, sustained organizational commitment and supportive communities are proven to reverse this trend.</p>
+                <a href="https://www.deloitte.com/global/en/our-thinking/insights/industry/technology/women-tech-leadership.html" target="_blank" class="why-link">
+                    Read the report
+                    <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 1h8v8"/><path d="M13 1 1 13"/></svg>
+                </a>
+            </div>
+
+            <div class="why-card">
+                <span class="why-source">Accenture & Girls Who Code</span>
+                <p>Company culture is the primary reason women leave technology careers. If organizations matched the inclusive culture standards of the top performers studied, attrition could drop dramatically, potentially doubling women's representation over a decade.</p>
+                <a href="https://www.accenture.com/content/dam/accenture/final/a-com-migration/pdf/pdf-134/accenture-a4-gwc-report-final1.pdf" target="_blank" class="why-link">
+                    Read the report
+                    <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 1h8v8"/><path d="M13 1 1 13"/></svg>
+                </a>
             </div>
         </div>
     </div>
@@ -824,6 +947,7 @@
         </span>
         <ul class="footer-links">
             <li><a href="#about">About</a></li>
+            <li><a href="#why">Why</a></li>
             <li><a href="#meetups">Meetups</a></li>
             <li><a href="#community">Community</a></li>
             <li><a href="mailto:hello@womenintech.goa">Contact</a></li>
