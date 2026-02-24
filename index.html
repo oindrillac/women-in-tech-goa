@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Women in Tech Goa</title>
+    <meta name="description" content="Empowering women in technology across Goa. Join our community to learn, connect, and grow together.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --purple: #7C3AED;
+            --purple-light: #A78BFA;
+            --purple-dark: #5B21B6;
+            --teal: #14B8A6;
+            --teal-light: #5EEAD4;
+            --bg-dark: #0F0B1A;
+            --bg-card: #1A1230;
+            --bg-card-hover: #221845;
+            --text-primary: #F1F0F5;
+            --text-secondary: #A8A3B5;
+            --border: #2D2545;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            background: var(--bg-dark);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Space Grotesk', sans-serif;
+            line-height: 1.2;
+        }
+
+        a { color: inherit; text-decoration: none; }
+
+        /* ── Navigation ── */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            background: rgba(15, 11, 26, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav-inner {
+            max-width: 1120px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 64px;
+        }
+
+        .nav-logo {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            font-size: 1.2rem;
+            background: linear-gradient(135deg, var(--purple-light), var(--teal));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links { display: flex; gap: 2rem; list-style: none; }
+
+        .nav-links a {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover { color: var(--text-primary); }
+
+        .nav-cta {
+            background: var(--purple);
+            color: #fff !important;
+            padding: 0.5rem 1.2rem;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            transition: background 0.2s;
+        }
+
+        .nav-cta:hover { background: var(--purple-dark); }
+
+        .hamburger {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 4px;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: var(--text-primary);
+            margin: 6px 0;
+            transition: 0.3s;
+            border-radius: 2px;
+        }
+
+        /* ── Hero ── */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            background:
+                linear-gradient(180deg, rgba(15,11,26,0.3) 0%, rgba(15,11,26,0.85) 70%, var(--bg-dark) 100%),
+                url('https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&cs=tinysrgb&w=1920') center/cover no-repeat;
+        }
+
+        .hero-content {
+            position: relative;
+            max-width: 1120px;
+            margin: 0 auto;
+            padding: 8rem 1.5rem 4rem;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            padding: 0.35rem 1rem;
+            border-radius: 50px;
+            border: 1px solid var(--border);
+            font-size: 0.8rem;
+            color: var(--teal-light);
+            margin-bottom: 1.5rem;
+            background: rgba(20, 184, 166, 0.08);
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 700;
+            max-width: 720px;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #fff 40%, var(--purple-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1.15rem;
+            color: var(--text-secondary);
+            max-width: 540px;
+            margin-bottom: 2rem;
+        }
+
+        .btn-group { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.8rem 1.8rem;
+            border-radius: 10px;
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            border: none;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .btn:hover { transform: translateY(-2px); }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--purple), var(--purple-dark));
+            color: #fff;
+            box-shadow: 0 4px 20px rgba(124, 58, 237, 0.35);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--text-primary);
+            border: 1px solid var(--border);
+        }
+
+        .btn-outline:hover { border-color: var(--purple-light); }
+
+        /* ── Sections ── */
+        section { padding: 6rem 1.5rem; }
+
+        .section-inner {
+            max-width: 1120px;
+            margin: 0 auto;
+        }
+
+        .section-label {
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--teal);
+            margin-bottom: 0.75rem;
+        }
+
+        .section-title {
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .section-subtitle {
+            color: var(--text-secondary);
+            max-width: 560px;
+            margin-bottom: 3rem;
+        }
+
+        /* ── About / Purpose ── */
+        .purpose-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .purpose-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2rem;
+            transition: border-color 0.3s, transform 0.3s;
+        }
+
+        .purpose-card:hover {
+            border-color: var(--purple);
+            transform: translateY(-4px);
+        }
+
+        .purpose-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .purpose-icon.learn { background: rgba(124, 58, 237, 0.15); }
+        .purpose-icon.connect { background: rgba(20, 184, 166, 0.15); }
+        .purpose-icon.grow { background: rgba(251, 191, 36, 0.15); }
+
+        .purpose-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.6rem;
+        }
+
+        .purpose-card p { color: var(--text-secondary); font-size: 0.95rem; }
+
+        /* ── Meetups ── */
+        #meetups { background: var(--bg-card); }
+
+        .meetup-list { display: flex; flex-direction: column; gap: 1.25rem; }
+
+        .meetup-card {
+            display: flex;
+            gap: 1.5rem;
+            background: var(--bg-dark);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 1.75rem;
+            transition: border-color 0.3s;
+            align-items: center;
+        }
+
+        .meetup-card:hover { border-color: var(--purple); }
+
+        .meetup-date {
+            flex-shrink: 0;
+            width: 72px;
+            text-align: center;
+        }
+
+        .meetup-date .month {
+            display: block;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--teal);
+        }
+
+        .meetup-date .day {
+            display: block;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2rem;
+            font-weight: 700;
+            line-height: 1;
+            margin-top: 0.2rem;
+        }
+
+        .meetup-info h3 { font-size: 1.1rem; margin-bottom: 0.4rem; }
+
+        .meetup-meta {
+            display: flex;
+            gap: 1.2rem;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .meetup-meta span { display: inline-flex; align-items: center; gap: 0.3rem; }
+
+        /* ── Community ── */
+        .community-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .community-text h2 {
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            margin-bottom: 1rem;
+        }
+
+        .community-text p {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            font-size: 1.05rem;
+        }
+
+        .photo-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.75rem;
+        }
+
+        .photo-grid img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+        }
+
+        .whatsapp-btn {
+            background: #25D366;
+            color: #fff;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.3);
+        }
+
+        /* ── Stats ── */
+        .stats-row {
+            display: flex;
+            gap: 3rem;
+            margin-top: 2rem;
+        }
+
+        .stat-item h4 {
+            font-size: 1.8rem;
+            color: var(--purple-light);
+        }
+
+        .stat-item p {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        /* ── Footer ── */
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 3rem 1.5rem;
+        }
+
+        .footer-inner {
+            max-width: 1120px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .footer-brand {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            font-size: 1.1rem;
+            background: linear-gradient(135deg, var(--purple-light), var(--teal));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 1.5rem;
+            list-style: none;
+        }
+
+        .footer-links a {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover { color: var(--text-primary); }
+
+        .footer-copy {
+            width: 100%;
+            text-align: center;
+            margin-top: 1.5rem;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+
+        /* ── Mobile ── */
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .nav-links.open {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                top: 64px;
+                left: 0;
+                right: 0;
+                background: rgba(15, 11, 26, 0.97);
+                padding: 1.5rem;
+                gap: 1rem;
+                border-bottom: 1px solid var(--border);
+            }
+            .hamburger { display: block; }
+
+            .community-grid { grid-template-columns: 1fr; }
+            .photo-grid { grid-template-columns: 1fr 1fr; }
+            .stats-row { gap: 1.5rem; }
+
+            .meetup-card {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .footer-inner { flex-direction: column; text-align: center; }
+            .footer-links { justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ── Navigation ── -->
+<nav>
+    <div class="nav-inner">
+        <a href="#" class="nav-logo">WiTG</a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#about">About</a></li>
+            <li><a href="#meetups">Meetups</a></li>
+            <li><a href="#community">Community</a></li>
+            <li><a href="#community" class="nav-cta">Join Us</a></li>
+        </ul>
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+            <span></span><span></span><span></span>
+        </button>
+    </div>
+</nav>
+
+<!-- ── Hero ── -->
+<section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+        <span class="hero-badge">Goa's Tech Community for Women</span>
+        <h1>Empowering Women in Tech Across Goa</h1>
+        <p>We're building an inclusive space where women in Goa can learn new technologies, share ideas, and grow together — sustainably and boldly.</p>
+        <div class="btn-group">
+            <a href="#community" class="btn btn-primary">Join Our Community</a>
+            <a href="#meetups" class="btn btn-outline">Upcoming Meetups</a>
+        </div>
+    </div>
+</section>
+
+<!-- ── About / Purpose ── -->
+<section id="about">
+    <div class="section-inner">
+        <p class="section-label">Our Purpose</p>
+        <h2 class="section-title">Why Women in Tech Goa?</h2>
+        <p class="section-subtitle">We believe technology should be shaped by everyone. Our community creates opportunities for women to thrive in Goa's growing tech scene.</p>
+
+        <div class="purpose-grid">
+            <div class="purpose-card">
+                <div class="purpose-icon learn">
+                    <svg width="24" height="24" fill="none" stroke="#A78BFA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+                </div>
+                <h3>Learn</h3>
+                <p>Hands-on workshops, talks, and study groups covering everything from web development to AI and sustainable tech.</p>
+            </div>
+            <div class="purpose-card">
+                <div class="purpose-icon connect">
+                    <svg width="24" height="24" fill="none" stroke="#5EEAD4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                </div>
+                <h3>Connect</h3>
+                <p>Meet like-minded women across Goa — developers, designers, founders, students, and career-changers — all welcome.</p>
+            </div>
+            <div class="purpose-card">
+                <div class="purpose-icon grow">
+                    <svg width="24" height="24" fill="none" stroke="#FBBF24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+                </div>
+                <h3>Grow</h3>
+                <p>Build your portfolio, find mentors, land opportunities, and level up your career in tech — right here in Goa.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ── Upcoming Meetups ── -->
+<section id="meetups">
+    <div class="section-inner">
+        <p class="section-label">Upcoming Events</p>
+        <h2 class="section-title">Join Our Next Meetup</h2>
+        <p class="section-subtitle">We host regular meetups across Goa — beginner-friendly, always free, and full of great conversations.</p>
+
+        <div class="meetup-list">
+            <div class="meetup-card">
+                <div class="meetup-date">
+                    <span class="month">Mar</span>
+                    <span class="day">15</span>
+                </div>
+                <div class="meetup-info">
+                    <h3>Getting Started with Web Development</h3>
+                    <div class="meetup-meta">
+                        <span>
+                            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><circle cx="7" cy="7" r="6"/><polyline points="7 4 7 7 9.5 8.5"/></svg>
+                            10:00 AM - 1:00 PM
+                        </span>
+                        <span>
+                            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 1C4.2 1 2 3.7 2 6c0 4 5 7 5 7s5-3 5-7c0-2.3-2.2-5-5-5z"/><circle cx="7" cy="6" r="1.5"/></svg>
+                            Panjim, Goa
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="meetup-card">
+                <div class="meetup-date">
+                    <span class="month">Apr</span>
+                    <span class="day">05</span>
+                </div>
+                <div class="meetup-info">
+                    <h3>Introduction to AI &amp; Machine Learning</h3>
+                    <div class="meetup-meta">
+                        <span>
+                            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><circle cx="7" cy="7" r="6"/><polyline points="7 4 7 7 9.5 8.5"/></svg>
+                            11:00 AM - 2:00 PM
+                        </span>
+                        <span>
+                            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 1C4.2 1 2 3.7 2 6c0 4 5 7 5 7s5-3 5-7c0-2.3-2.2-5-5-5z"/><circle cx="7" cy="6" r="1.5"/></svg>
+                            Margao, Goa
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="meetup-card">
+                <div class="meetup-date">
+                    <span class="month">Apr</span>
+                    <span class="day">26</span>
+                </div>
+                <div class="meetup-info">
+                    <h3>Sustainable Tech &amp; Green Computing</h3>
+                    <div class="meetup-meta">
+                        <span>
+                            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><circle cx="7" cy="7" r="6"/><polyline points="7 4 7 7 9.5 8.5"/></svg>
+                            10:30 AM - 1:30 PM
+                        </span>
+                        <span>
+                            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 1C4.2 1 2 3.7 2 6c0 4 5 7 5 7s5-3 5-7c0-2.3-2.2-5-5-5z"/><circle cx="7" cy="6" r="1.5"/></svg>
+                            Mapusa, Goa
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ── Community ── -->
+<section id="community">
+    <div class="section-inner">
+        <div class="community-grid">
+            <div class="community-text">
+                <p class="section-label">Community</p>
+                <h2>Join the Conversation</h2>
+                <p>Our WhatsApp community is where the magic happens between meetups — ask questions, share resources, find collaborators, and stay in the loop.</p>
+                <a href="#" class="btn whatsapp-btn" id="whatsappLink">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                    Join WhatsApp Group
+                </a>
+
+                <div class="stats-row">
+                    <div class="stat-item">
+                        <h4>50+</h4>
+                        <p>Members</p>
+                    </div>
+                    <div class="stat-item">
+                        <h4>10+</h4>
+                        <p>Meetups Held</p>
+                    </div>
+                    <div class="stat-item">
+                        <h4>3</h4>
+                        <p>Cities</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="photo-grid">
+                <img src="https://images.pexels.com/photos/3861958/pexels-photo-3861958.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Women collaborating on tech project" loading="lazy">
+                <img src="https://images.pexels.com/photos/3184360/pexels-photo-3184360.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Tech meetup discussion" loading="lazy">
+                <img src="https://images.pexels.com/photos/7709020/pexels-photo-7709020.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Woman coding on laptop" loading="lazy">
+                <img src="https://images.pexels.com/photos/3184339/pexels-photo-3184339.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Group brainstorming session" loading="lazy">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ── Footer ── -->
+<footer>
+    <div class="footer-inner">
+        <span class="footer-brand">Women in Tech Goa</span>
+        <ul class="footer-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#meetups">Meetups</a></li>
+            <li><a href="#community">Community</a></li>
+            <li><a href="mailto:hello@womenintech.goa">Contact</a></li>
+        </ul>
+        <p class="footer-copy">&copy; 2026 Women in Tech Goa. Made with purpose in Goa.</p>
+    </div>
+</footer>
+
+<script>
+    // Mobile nav toggle
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('navLinks');
+    hamburger.addEventListener('click', () => navLinks.classList.toggle('open'));
+
+    // Close mobile nav on link click
+    navLinks.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => navLinks.classList.remove('open'));
+    });
+</script>
+</body>
+</html>
