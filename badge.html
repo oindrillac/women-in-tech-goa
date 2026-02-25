@@ -345,6 +345,30 @@
             cursor: not-allowed;
         }
 
+        .toast {
+            position: fixed;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            background: #3D2E22;
+            color: white;
+            padding: 1rem 1.5rem;
+            border-radius: 12px;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            max-width: 400px;
+            text-align: center;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+            z-index: 1000;
+            opacity: 0;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+
+        .toast.show {
+            transform: translateX(-50%) translateY(0);
+            opacity: 1;
+        }
+
         .tip {
             margin-top: 1rem;
             font-size: 0.8rem;
@@ -353,6 +377,8 @@
     </style>
 </head>
 <body>
+
+<div class="toast" id="toast"></div>
 
 <!-- Passcode Gate -->
 <div class="gate" id="gate">
@@ -707,6 +733,13 @@
         ctx.fillText('womenintechgoa.com', W / 2, 1020);
     }
 
+    function showToast(msg) {
+        const toast = document.getElementById('toast');
+        toast.textContent = msg;
+        toast.classList.add('show');
+        setTimeout(() => toast.classList.remove('show'), 4000);
+    }
+
     function roundRect(ctx, x, y, w, h, r) {
         ctx.beginPath();
         ctx.moveTo(x + r, y);
@@ -748,12 +781,11 @@ WiTG is Goa's community for women and non-binary folks in STEM. If you're in Goa
 #WomenInTech #STEM #WiTG #WomenInSTEM #Goa #WomenInTechGoa`;
 
         navigator.clipboard.writeText(postText).then(() => {
-            alert('Post text copied to clipboard! ✅\n\nLinkedIn will open next. Just:\n1. Click "Start a post"\n2. Paste the text (Ctrl+V / Cmd+V)\n3. Attach the downloaded badge image');
-            window.open('https://www.linkedin.com/feed/', '_blank');
-        }).catch(() => {
-            // Fallback if clipboard fails
-            window.open('https://www.linkedin.com/feed/', '_blank');
-        });
+            showToast('Post text copied! ✅ Paste it into your LinkedIn post and attach the downloaded badge.');
+        }).catch(() => {});
+
+        // Open LinkedIn immediately without blocking
+        window.open('https://www.linkedin.com/feed/', '_blank');
     });
 </script>
 
