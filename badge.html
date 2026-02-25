@@ -772,7 +772,7 @@
 
         // Build post text and copy to clipboard
         const role = memberType === 'founding' ? 'Founding Member' : 'Member';
-        const postText = `I am excited to join as a ${role} of Women in Tech Goa (WiTG)! 🎉
+        const postText = `I am excited to join as a ${role} of @Women in Tech Goa (WiTG)! 🎉
 
 WiTG is Goa's community for women and non-binary folks in STEM. If you're in Goa and passionate about science, technology, engineering, or mathematics, come join us!
 
@@ -781,7 +781,7 @@ WiTG is Goa's community for women and non-binary folks in STEM. If you're in Goa
 #WomenInTech #STEM #WiTG #WomenInSTEM #Goa #WomenInTechGoa`;
 
         navigator.clipboard.writeText(postText).then(() => {
-            alert('Post text copied to clipboard! ✅\n\nLinkedIn will open next:\n1. Click "Start a post"\n2. Paste the text (Ctrl+V / Cmd+V)\n3. Click the image icon to attach your downloaded badge\n\n(The website link is already in the text, no need to add a link preview!)');
+            alert('Post text copied to clipboard! ✅\n\nLinkedIn will open next:\n1. Click "Start a post"\n2. Paste the text (Ctrl+V / Cmd+V)\n3. A link preview will appear automatically — click the ✕ on it to remove it\n4. Now click the 📷 image icon to attach your downloaded badge\n5. Tag the page: delete "@Women in Tech Goa" from the text, re-type it, and select the page from the dropdown\n\nNote: You must remove the link preview first, otherwise the image attach option won\'t appear!');
             window.open('https://www.linkedin.com/feed/', '_blank');
         }).catch(() => {
             window.open('https://www.linkedin.com/feed/', '_blank');
