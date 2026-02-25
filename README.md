@@ -18,7 +18,7 @@ WiTG (aka WittyGirls) is a community for women and non-binary folks in STEM acro
 
 Technology and science should be shaped by everyone. But the reality is stark: it takes over 100 years to close the global gender gap at the current pace (World Economic Forum), India's tech industry faces a massive women retention crisis (NASSCOM), and the first promotion to manager is where women fall behind and the gap only widens (McKinsey).
 
-WiTG exists because dedicated, safe spaces for women in STEM are not just nice to have, they are essential. We're building a community where you can learn, connect, and grow without being the only woman in the room. 💪
+WiTG exists because dedicated, safe spaces for women in STEM are not just nice to have, they are essential. We're building a localized community in Goa where you can learn, connect, and grow without being the only woman in the room. 💪
 
 ## 🎯 What We Do
 
