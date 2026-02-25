@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Member Badge | WiTG</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23C4784D'/><text x='50' y='72' font-family='system-ui,sans-serif' font-size='65' font-weight='700' fill='white' text-anchor='middle'>W</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --terracotta: #C4784D;
+            --terracotta-soft: #FAEDE4;
+            --terracotta-deep: #A85D35;
+            --sage: #A8BFA0;
+            --sage-soft: #E8F0E4;
+            --sage-deep: #6B8C5E;
+            --amber: #D4A653;
+            --amber-soft: #FBF2DC;
+            --amber-deep: #B8872E;
+            --sand: #D4C4A8;
+            --sand-soft: #F5F0E8;
+            --bg: #FDF9F5;
+            --bg-card: #FFFDFB;
+            --text: #3D2E22;
+            --text-secondary: #6E5A4A;
+            --text-muted: #A89480;
+            --border: #EDE4D8;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+        }
+
+        /* Passcode Gate */
+        .gate {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .gate h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .gate p {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            font-size: 0.9rem;
+        }
+
+        .gate-input {
+            padding: 0.75rem 1.25rem;
+            border: 1.5px solid var(--border);
+            border-radius: 10px;
+            font-size: 1rem;
+            font-family: inherit;
+            background: var(--bg-card);
+            width: 260px;
+            text-align: center;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .gate-input:focus {
+            border-color: var(--terracotta);
+        }
+
+        .gate-btn {
+            margin-top: 1rem;
+            padding: 0.7rem 2rem;
+            background: var(--terracotta);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .gate-btn:hover {
+            background: var(--terracotta-deep);
+        }
+
+        .gate-error {
+            color: #c0392b;
+            margin-top: 0.75rem;
+            font-size: 0.85rem;
+            display: none;
+        }
+
+        .gate-back {
+            margin-top: 2rem;
+            font-size: 0.825rem;
+            color: var(--text-muted);
+        }
+
+        .gate-back a {
+            color: var(--terracotta);
+            text-decoration: none;
+        }
+
+        /* Badge Generator */
+        .generator {
+            display: none;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem 3rem;
+        }
+
+        .gen-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .gen-header a {
+            font-size: 0.8rem;
+            color: var(--terracotta);
+            text-decoration: none;
+        }
+
+        .gen-header h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.6rem;
+            margin: 0.75rem 0 0.25rem;
+        }
+
+        .gen-header p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* Form Controls */
+        .form-group {
+            margin-bottom: 1.25rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.825rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            margin-bottom: 0.4rem;
+        }
+
+        .form-group input[type="text"] {
+            width: 100%;
+            padding: 0.7rem 1rem;
+            border: 1.5px solid var(--border);
+            border-radius: 10px;
+            font-size: 0.95rem;
+            font-family: inherit;
+            background: var(--bg-card);
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .form-group input[type="text"]:focus {
+            border-color: var(--terracotta);
+        }
+
+        /* Photo Upload */
+        .upload-area {
+            border: 2px dashed var(--border);
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            cursor: pointer;
+            transition: border-color 0.2s, background 0.2s;
+            background: var(--bg-card);
+        }
+
+        .upload-area:hover, .upload-area.dragover {
+            border-color: var(--terracotta);
+            background: var(--terracotta-soft);
+        }
+
+        .upload-area p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .upload-area .upload-icon {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .upload-area.has-photo {
+            border-style: solid;
+            border-color: var(--sage);
+            background: var(--sage-soft);
+        }
+
+        .upload-area.has-photo p {
+            color: var(--sage-deep);
+        }
+
+        input[type="file"] {
+            display: none;
+        }
+
+        /* Toggle */
+        .toggle-group {
+            display: flex;
+            gap: 0;
+            border: 1.5px solid var(--border);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .toggle-option {
+            flex: 1;
+            padding: 0.65rem 1rem;
+            text-align: center;
+            font-size: 0.875rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            background: var(--bg-card);
+            color: var(--text-muted);
+            border: none;
+        }
+
+        .toggle-option.active {
+            background: var(--terracotta);
+            color: white;
+        }
+
+        .toggle-option:not(.active):hover {
+            background: var(--terracotta-soft);
+            color: var(--terracotta);
+        }
+
+        /* Preview */
+        .preview-section {
+            margin-top: 2rem;
+            text-align: center;
+        }
+
+        .preview-section h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            color: var(--text-secondary);
+        }
+
+        .canvas-wrap {
+            display: inline-block;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.1);
+            max-width: 100%;
+        }
+
+        .canvas-wrap canvas {
+            display: block;
+            width: 100%;
+            max-width: 400px;
+            height: auto;
+        }
+
+        .download-btn {
+            display: inline-block;
+            margin-top: 1.25rem;
+            padding: 0.75rem 2rem;
+            background: var(--terracotta);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+            text-decoration: none;
+        }
+
+        .download-btn:hover {
+            background: var(--terracotta-deep);
+        }
+
+        .download-btn:disabled {
+            background: var(--sand);
+            cursor: not-allowed;
+        }
+
+        .btn-row {
+            display: flex;
+            gap: 0.75rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 1.25rem;
+        }
+
+        .btn-row .download-btn {
+            margin-top: 0;
+        }
+
+        .linkedin-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 0;
+            padding: 0.75rem 2rem;
+            background: #0A66C2;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+            text-decoration: none;
+        }
+
+        .linkedin-btn:hover {
+            background: #004182;
+        }
+
+        .linkedin-btn:disabled {
+            background: var(--sand);
+            cursor: not-allowed;
+        }
+
+        .tip {
+            margin-top: 1rem;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+    </style>
+</head>
+<body>
+
+<!-- Passcode Gate -->
+<div class="gate" id="gate">
+    <h1>🔒 Members Only</h1>
+    <p>Enter the community passcode to generate your badge.</p>
+    <input type="password" class="gate-input" id="passcodeInput" placeholder="Enter passcode" autofocus>
+    <button class="gate-btn" id="passcodeBtn">Enter</button>
+    <p class="gate-error" id="gateError">Incorrect passcode. Try again!</p>
+    <p class="gate-back"><a href="/">← Back to womenintechgoa.com</a></p>
+</div>
+
+<!-- Badge Generator (hidden until passcode) -->
+<div class="generator" id="generator">
+    <div class="gen-header">
+        <a href="/">← womenintechgoa.com</a>
+        <h1>🐱 Create Your WiTG Badge</h1>
+        <p>Generate your member badge and share it on LinkedIn!</p>
+    </div>
+
+    <div class="form-group">
+        <label>Your Photo</label>
+        <div class="upload-area" id="uploadArea">
+            <div class="upload-icon">📷</div>
+            <p id="uploadText">Drag & drop your photo here, or click to browse</p>
+        </div>
+        <input type="file" id="photoInput" accept="image/*">
+    </div>
+
+    <div class="form-group">
+        <label>Your Name</label>
+        <input type="text" id="nameInput" placeholder="e.g. Oindrilla Chatterjee">
+    </div>
+
+    <div class="form-group">
+        <label>Member Type</label>
+        <div class="toggle-group">
+            <button class="toggle-option active" data-type="founding">Founding Member</button>
+            <button class="toggle-option" data-type="member">Member</button>
+        </div>
+    </div>
+
+    <div class="preview-section">
+        <h2>Preview</h2>
+        <div class="canvas-wrap">
+            <canvas id="badgeCanvas" width="1080" height="1080"></canvas>
+        </div>
+        <div class="btn-row">
+            <button class="download-btn" id="downloadBtn" disabled>Download Badge</button>
+            <button class="linkedin-btn" id="linkedinBtn" disabled>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                Share on LinkedIn
+            </button>
+        </div>
+        <p class="tip">Tip: Use a square photo with your face centered for best results!<br>The LinkedIn button will download your badge and open a new post for you to attach it.</p>
+    </div>
+</div>
+
+<script>
+    // Passcode
+    const PASSCODE = 'wittyg2026';
+    const gate = document.getElementById('gate');
+    const generator = document.getElementById('generator');
+    const passcodeInput = document.getElementById('passcodeInput');
+    const passcodeBtn = document.getElementById('passcodeBtn');
+    const gateError = document.getElementById('gateError');
+
+    function checkPasscode() {
+        if (passcodeInput.value.trim().toLowerCase() === PASSCODE) {
+            gate.style.display = 'none';
+            generator.style.display = 'block';
+            drawBadge();
+        } else {
+            gateError.style.display = 'block';
+            passcodeInput.value = '';
+            passcodeInput.focus();
+        }
+    }
+
+    passcodeBtn.addEventListener('click', checkPasscode);
+    passcodeInput.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') checkPasscode();
+        gateError.style.display = 'none';
+    });
+
+    // Photo upload
+    const uploadArea = document.getElementById('uploadArea');
+    const uploadText = document.getElementById('uploadText');
+    const photoInput = document.getElementById('photoInput');
+    let userPhoto = null;
+
+    uploadArea.addEventListener('click', () => photoInput.click());
+
+    uploadArea.addEventListener('dragover', (e) => {
+        e.preventDefault();
+        uploadArea.classList.add('dragover');
+    });
+
+    uploadArea.addEventListener('dragleave', () => {
+        uploadArea.classList.remove('dragover');
+    });
+
+    uploadArea.addEventListener('drop', (e) => {
+        e.preventDefault();
+        uploadArea.classList.remove('dragover');
+        if (e.dataTransfer.files.length) handleFile(e.dataTransfer.files[0]);
+    });
+
+    photoInput.addEventListener('change', () => {
+        if (photoInput.files.length) handleFile(photoInput.files[0]);
+    });
+
+    function handleFile(file) {
+        if (!file.type.startsWith('image/')) return;
+        const reader = new FileReader();
+        reader.onload = (e) => {
+            const img = new Image();
+            img.onload = () => {
+                userPhoto = img;
+                uploadArea.classList.add('has-photo');
+                uploadText.textContent = '✓ Photo uploaded! Click to change.';
+                drawBadge();
+                document.getElementById('downloadBtn').disabled = false;
+                document.getElementById('linkedinBtn').disabled = false;
+            };
+            img.src = e.target.result;
+        };
+        reader.readAsDataURL(file);
+    }
+
+    // Name input
+    const nameInput = document.getElementById('nameInput');
+    nameInput.addEventListener('input', drawBadge);
+
+    // Toggle
+    let memberType = 'founding';
+    document.querySelectorAll('.toggle-option').forEach(btn => {
+        btn.addEventListener('click', () => {
+            document.querySelectorAll('.toggle-option').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            memberType = btn.dataset.type;
+            drawBadge();
+        });
+    });
+
+    // Canvas drawing
+    const canvas = document.getElementById('badgeCanvas');
+    const ctx = canvas.getContext('2d');
+
+    function drawBadge() {
+        const W = 1080;
+        const H = 1080;
+
+        // Bold background gradient
+        const bgGrad = ctx.createLinearGradient(0, 0, W, H);
+        bgGrad.addColorStop(0, '#C4784D');
+        bgGrad.addColorStop(0.5, '#D4A653');
+        bgGrad.addColorStop(1, '#A8BFA0');
+        ctx.fillStyle = bgGrad;
+        ctx.fillRect(0, 0, W, H);
+
+        // Large decorative corner circles
+        ctx.globalAlpha = 0.15;
+        ctx.fillStyle = '#FFFFFF';
+        ctx.beginPath();
+        ctx.arc(0, 0, 300, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.beginPath();
+        ctx.arc(W, H, 350, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.beginPath();
+        ctx.arc(W, 0, 200, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.beginPath();
+        ctx.arc(0, H, 250, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.globalAlpha = 1;
+
+        // White inner card
+        const cardInset = 40;
+        ctx.fillStyle = '#FFFDFB';
+        ctx.shadowColor = 'rgba(0,0,0,0.1)';
+        ctx.shadowBlur = 30;
+        roundRect(ctx, cardInset, cardInset, W - cardInset * 2, H - cardInset * 2, 28);
+        ctx.fill();
+        ctx.shadowBlur = 0;
+
+        // Colorful top accent bar
+        const barY = cardInset;
+        const barH = 10;
+        ctx.save();
+        roundRect(ctx, cardInset, barY, W - cardInset * 2, 28, 28);
+        ctx.clip();
+        const barGrad = ctx.createLinearGradient(cardInset, 0, W - cardInset, 0);
+        barGrad.addColorStop(0, '#C4784D');
+        barGrad.addColorStop(0.33, '#D4A653');
+        barGrad.addColorStop(0.66, '#A8BFA0');
+        barGrad.addColorStop(1, '#6B8C5E');
+        ctx.fillStyle = barGrad;
+        ctx.fillRect(cardInset, barY, W - cardInset * 2, barH);
+        ctx.restore();
+
+        // WiTG top label
+        ctx.fillStyle = '#C4784D';
+        ctx.font = '700 32px "Space Grotesk", sans-serif';
+        ctx.textAlign = 'center';
+        ctx.fillText('Women in Tech Goa', W / 2, 110);
+
+        // Cat emoji
+        ctx.font = '44px sans-serif';
+        ctx.fillText('🐱', W / 2, 160);
+
+        // Photo circle
+        const photoY = 340;
+        const photoR = 155;
+
+        if (userPhoto) {
+            // Colorful ring behind photo
+            const ringGrad = ctx.createLinearGradient(W/2 - photoR - 20, photoY - photoR - 20, W/2 + photoR + 20, photoY + photoR + 20);
+            ringGrad.addColorStop(0, '#C4784D');
+            ringGrad.addColorStop(0.5, '#D4A653');
+            ringGrad.addColorStop(1, '#A8BFA0');
+            ctx.fillStyle = ringGrad;
+            ctx.beginPath();
+            ctx.arc(W / 2, photoY, photoR + 10, 0, Math.PI * 2);
+            ctx.fill();
+
+            // White gap
+            ctx.fillStyle = '#FFFDFB';
+            ctx.beginPath();
+            ctx.arc(W / 2, photoY, photoR + 5, 0, Math.PI * 2);
+            ctx.fill();
+
+            ctx.save();
+            ctx.beginPath();
+            ctx.arc(W / 2, photoY, photoR, 0, Math.PI * 2);
+            ctx.closePath();
+            ctx.clip();
+
+            const img = userPhoto;
+            const aspect = img.width / img.height;
+            let drawW, drawH, drawX, drawY;
+            if (aspect > 1) {
+                drawH = photoR * 2;
+                drawW = drawH * aspect;
+                drawX = W / 2 - drawW / 2;
+                drawY = photoY - photoR;
+            } else {
+                drawW = photoR * 2;
+                drawH = drawW / aspect;
+                drawX = W / 2 - photoR;
+                drawY = photoY - drawH / 2;
+            }
+            ctx.drawImage(img, drawX, drawY, drawW, drawH);
+            ctx.restore();
+        } else {
+            // Placeholder circle
+            ctx.fillStyle = '#F0E6DA';
+            ctx.beginPath();
+            ctx.arc(W / 2, photoY, photoR, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.fillStyle = '#A89480';
+            ctx.font = '60px sans-serif';
+            ctx.textAlign = 'center';
+            ctx.fillText('📷', W / 2, photoY + 18);
+        }
+
+        // Name
+        const name = nameInput.value.trim() || 'Your Name';
+        ctx.fillStyle = '#3D2E22';
+        ctx.textAlign = 'center';
+
+        let fontSize = 54;
+        ctx.font = `700 ${fontSize}px "Space Grotesk", sans-serif`;
+        while (ctx.measureText(name).width > W - 180 && fontSize > 28) {
+            fontSize -= 2;
+            ctx.font = `700 ${fontSize}px "Space Grotesk", sans-serif`;
+        }
+        ctx.fillText(name, W / 2, 575);
+
+        // "I am excited to join as a" text
+        ctx.fillStyle = '#6E5A4A';
+        ctx.font = '500 28px "Inter", sans-serif';
+        ctx.textAlign = 'center';
+        ctx.fillText('I am excited to join as a', W / 2, 630);
+
+        // Member type badge
+        if (memberType === 'founding') {
+            const pillText = '★ FOUNDING MEMBER ★';
+            ctx.font = '700 36px "Space Grotesk", sans-serif';
+            const pillW = ctx.measureText(pillText).width + 70;
+            const pillH = 64;
+            const pillX = W / 2 - pillW / 2;
+            const pillY = 655;
+
+            // Gradient pill
+            const pillGrad = ctx.createLinearGradient(pillX, pillY, pillX + pillW, pillY);
+            pillGrad.addColorStop(0, '#C4784D');
+            pillGrad.addColorStop(1, '#A85D35');
+            ctx.fillStyle = pillGrad;
+            roundRect(ctx, pillX, pillY, pillW, pillH, 32);
+            ctx.fill();
+
+            ctx.fillStyle = 'white';
+            ctx.textAlign = 'center';
+            ctx.fillText(pillText, W / 2, pillY + 44);
+        } else {
+            const pillText = 'MEMBER';
+            ctx.font = '700 36px "Space Grotesk", sans-serif';
+            const pillW = ctx.measureText(pillText).width + 70;
+            const pillH = 64;
+            const pillX = W / 2 - pillW / 2;
+            const pillY = 655;
+
+            const pillGrad = ctx.createLinearGradient(pillX, pillY, pillX + pillW, pillY);
+            pillGrad.addColorStop(0, '#6B8C5E');
+            pillGrad.addColorStop(1, '#A8BFA0');
+            ctx.fillStyle = pillGrad;
+            roundRect(ctx, pillX, pillY, pillW, pillH, 32);
+            ctx.fill();
+
+            ctx.fillStyle = 'white';
+            ctx.textAlign = 'center';
+            ctx.fillText(pillText, W / 2, pillY + 44);
+        }
+
+        // Tagline
+        ctx.fillStyle = '#6E5A4A';
+        ctx.font = '400 26px "Inter", sans-serif';
+        ctx.textAlign = 'center';
+        ctx.fillText("Goa's community for women & non-binary folks in STEM", W / 2, 800);
+
+        // Colorful decorative dots
+        const dotColors = ['#C4784D', '#D4A653', '#A8BFA0', '#6B8C5E'];
+        for (let i = 0; i < 4; i++) {
+            ctx.fillStyle = dotColors[i];
+            ctx.beginPath();
+            ctx.arc(W / 2 - 60 + i * 40, 850, 8, 0, Math.PI * 2);
+            ctx.fill();
+        }
+
+        // WiTG large watermark
+        ctx.fillStyle = '#C4784D';
+        ctx.globalAlpha = 0.08;
+        ctx.font = '700 140px "Space Grotesk", sans-serif';
+        ctx.textAlign = 'center';
+        ctx.fillText('WiTG', W / 2, 975);
+        ctx.globalAlpha = 1;
+
+        // Website URL
+        ctx.fillStyle = '#C4784D';
+        ctx.font = '600 26px "Inter", sans-serif';
+        ctx.fillText('womenintechgoa.com', W / 2, 1020);
+    }
+
+    function roundRect(ctx, x, y, w, h, r) {
+        ctx.beginPath();
+        ctx.moveTo(x + r, y);
+        ctx.lineTo(x + w - r, y);
+        ctx.quadraticCurveTo(x + w, y, x + w, y + r);
+        ctx.lineTo(x + w, y + h - r);
+        ctx.quadraticCurveTo(x + w, y + h, x + w - r, y + h);
+        ctx.lineTo(x + r, y + h);
+        ctx.quadraticCurveTo(x, y + h, x, y + h - r);
+        ctx.lineTo(x, y + r);
+        ctx.quadraticCurveTo(x, y, x + r, y);
+        ctx.closePath();
+    }
+
+    // Download
+    function downloadBadge() {
+        const link = document.createElement('a');
+        const name = nameInput.value.trim() || 'WiTG';
+        link.download = `WiTG-Badge-${name.replace(/\s+/g, '-')}.png`;
+        link.href = canvas.toDataURL('image/png');
+        link.click();
+    }
+
+    document.getElementById('downloadBtn').addEventListener('click', downloadBadge);
+
+    // Share to LinkedIn
+    document.getElementById('linkedinBtn').addEventListener('click', () => {
+        // Download the image first
+        downloadBadge();
+
+        // Build default post text
+        const name = nameInput.value.trim() || '';
+        const role = memberType === 'founding' ? 'Founding Member' : 'Member';
+        const postText = `I am excited to join as a ${role} of Women in Tech Goa (WiTG)! 🎉\n\nWiTG is Goa's community for women and non-binary folks in STEM. If you're in Goa and passionate about science, technology, engineering, or mathematics, come join us!\n\n👉 womenintechgoa.com\n\n#WomenInTech #STEM #WiTG #WomenInSTEM #Goa #WomenInTechGoa`;
+
+        const linkedinUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent('https://womenintechgoa.com')}`;
+        window.open(linkedinUrl, '_blank');
+    });
+</script>
+
+</body>
+</html>
