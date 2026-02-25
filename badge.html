@@ -737,13 +737,23 @@
         // Download the image first
         downloadBadge();
 
-        // Build default post text
-        const name = nameInput.value.trim() || '';
+        // Build post text and copy to clipboard
         const role = memberType === 'founding' ? 'Founding Member' : 'Member';
-        const postText = `I am excited to join as a ${role} of Women in Tech Goa (WiTG)! 🎉\n\nWiTG is Goa's community for women and non-binary folks in STEM. If you're in Goa and passionate about science, technology, engineering, or mathematics, come join us!\n\n👉 womenintechgoa.com\n\n#WomenInTech #STEM #WiTG #WomenInSTEM #Goa #WomenInTechGoa`;
+        const postText = `I am excited to join as a ${role} of Women in Tech Goa (WiTG)! 🎉
 
-        const linkedinUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent('https://womenintechgoa.com')}`;
-        window.open(linkedinUrl, '_blank');
+WiTG is Goa's community for women and non-binary folks in STEM. If you're in Goa and passionate about science, technology, engineering, or mathematics, come join us!
+
+👉 womenintechgoa.com
+
+#WomenInTech #STEM #WiTG #WomenInSTEM #Goa #WomenInTechGoa`;
+
+        navigator.clipboard.writeText(postText).then(() => {
+            alert('Post text copied to clipboard! ✅\n\nLinkedIn will open next. Just:\n1. Click "Start a post"\n2. Paste the text (Ctrl+V / Cmd+V)\n3. Attach the downloaded badge image');
+            window.open('https://www.linkedin.com/feed/', '_blank');
+        }).catch(() => {
+            // Fallback if clipboard fails
+            window.open('https://www.linkedin.com/feed/', '_blank');
+        });
     });
 </script>
 
