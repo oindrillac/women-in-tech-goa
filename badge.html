@@ -15,31 +15,24 @@
     <meta name="twitter:description" content="I just joined Women in Tech Goa! Create your member badge and share it.">
     <meta name="twitter:image" content="https://images.pexels.com/photos/3862382/pexels-photo-3862382.jpeg?auto=compress&cs=tinysrgb&w=1200">
     <meta name="robots" content="noindex, nofollow">
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23C4784D'/><text x='50' y='72' font-family='system-ui,sans-serif' font-size='65' font-weight='700' fill='white' text-anchor='middle'>W</text></svg>">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23fc0000'/><text x='50' y='72' font-family='system-ui,sans-serif' font-size='65' font-weight='700' fill='white' text-anchor='middle'>W</text></svg>">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
         :root {
-            --terracotta: #C4784D;
-            --terracotta-soft: #FAEDE4;
-            --terracotta-deep: #A85D35;
-            --sage: #A8BFA0;
-            --sage-soft: #E8F0E4;
-            --sage-deep: #6B8C5E;
-            --amber: #D4A653;
-            --amber-soft: #FBF2DC;
-            --amber-deep: #B8872E;
-            --sand: #D4C4A8;
-            --sand-soft: #F5F0E8;
-            --bg: #FDF9F5;
-            --bg-card: #FFFDFB;
-            --text: #3D2E22;
-            --text-secondary: #6E5A4A;
-            --text-muted: #A89480;
-            --border: #EDE4D8;
+            --red: #fc0000;
+            --red-soft: #fff0f0;
+            --red-deep: #cc0000;
+            --bg: #f4f6fc;
+            --bg-card: #ffffff;
+            --text: #000000;
+            --text-secondary: #333333;
+            --text-muted: #666666;
+            --border: #e0e0e0;
+            --border-hover: #000000;
         }
 
         body {
@@ -61,7 +54,7 @@
         }
 
         .gate h1 {
-            font-family: 'Space Grotesk', sans-serif;
+            font-family: 'DM Serif Display', serif;
             font-size: 1.5rem;
             margin-bottom: 0.5rem;
         }
@@ -86,13 +79,13 @@
         }
 
         .gate-input:focus {
-            border-color: var(--terracotta);
+            border-color: var(--red);
         }
 
         .gate-btn {
             margin-top: 1rem;
             padding: 0.7rem 2rem;
-            background: var(--terracotta);
+            background: var(--red);
             color: white;
             border: none;
             border-radius: 10px;
@@ -103,11 +96,11 @@
         }
 
         .gate-btn:hover {
-            background: var(--terracotta-deep);
+            background: var(--red-deep);
         }
 
         .gate-error {
-            color: #c0392b;
+            color: var(--red);
             margin-top: 0.75rem;
             font-size: 0.85rem;
             display: none;
@@ -120,7 +113,7 @@
         }
 
         .gate-back a {
-            color: var(--terracotta);
+            color: var(--red);
             text-decoration: none;
         }
 
@@ -139,12 +132,12 @@
 
         .gen-header a {
             font-size: 0.8rem;
-            color: var(--terracotta);
+            color: var(--red);
             text-decoration: none;
         }
 
         .gen-header h1 {
-            font-family: 'Space Grotesk', sans-serif;
+            font-family: 'DM Serif Display', serif;
             font-size: 1.6rem;
             margin: 0.75rem 0 0.25rem;
         }
@@ -180,7 +173,7 @@
         }
 
         .form-group input[type="text"]:focus {
-            border-color: var(--terracotta);
+            border-color: var(--red);
         }
 
         /* Photo Upload */
@@ -195,8 +188,8 @@
         }
 
         .upload-area:hover, .upload-area.dragover {
-            border-color: var(--terracotta);
-            background: var(--terracotta-soft);
+            border-color: var(--red);
+            background: var(--red-soft);
         }
 
         .upload-area p {
@@ -211,12 +204,12 @@
 
         .upload-area.has-photo {
             border-style: solid;
-            border-color: var(--sage);
-            background: var(--sage-soft);
+            border-color: var(--text);
+            background: #f0f0f4;
         }
 
         .upload-area.has-photo p {
-            color: var(--sage-deep);
+            color: var(--text);
         }
 
         input[type="file"] {
@@ -246,13 +239,13 @@
         }
 
         .toggle-option.active {
-            background: var(--terracotta);
+            background: var(--text);
             color: white;
         }
 
         .toggle-option:not(.active):hover {
-            background: var(--terracotta-soft);
-            color: var(--terracotta);
+            background: var(--red-soft);
+            color: var(--red);
         }
 
         /* Preview */
@@ -262,7 +255,7 @@
         }
 
         .preview-section h2 {
-            font-family: 'Space Grotesk', sans-serif;
+            font-family: 'DM Serif Display', serif;
             font-size: 1.1rem;
             margin-bottom: 1rem;
             color: var(--text-secondary);
@@ -287,7 +280,7 @@
             display: inline-block;
             margin-top: 1.25rem;
             padding: 0.75rem 2rem;
-            background: var(--terracotta);
+            background: var(--text);
             color: white;
             border: none;
             border-radius: 10px;
@@ -299,11 +292,11 @@
         }
 
         .download-btn:hover {
-            background: var(--terracotta-deep);
+            background: #111;
         }
 
         .download-btn:disabled {
-            background: var(--sand);
+            background: #ccc;
             cursor: not-allowed;
         }
 
@@ -341,7 +334,7 @@
         }
 
         .linkedin-btn:disabled {
-            background: var(--sand);
+            background: #ccc;
             cursor: not-allowed;
         }
 
@@ -350,7 +343,7 @@
             bottom: 2rem;
             left: 50%;
             transform: translateX(-50%) translateY(100px);
-            background: #3D2E22;
+            background: #000;
             color: white;
             padding: 1rem 1.5rem;
             border-radius: 12px;
@@ -382,7 +375,7 @@
 
 <!-- Passcode Gate -->
 <div class="gate" id="gate">
-    <h1>🔒 Members Only</h1>
+    <h1>Members Only</h1>
     <p>Enter the community passcode to generate your badge.</p>
     <input type="password" class="gate-input" id="passcodeInput" placeholder="Enter passcode" autofocus>
     <button class="gate-btn" id="passcodeBtn">Enter</button>
@@ -394,14 +387,14 @@
 <div class="generator" id="generator">
     <div class="gen-header">
         <a href="/">← womenintechgoa.com</a>
-        <h1>🐱 Create Your WiTG Badge</h1>
+        <h1>Create Your WiTG Badge</h1>
         <p>Generate your member badge and share it on LinkedIn!</p>
     </div>
 
     <div class="form-group">
         <label>Your Photo</label>
         <div class="upload-area" id="uploadArea">
-            <div class="upload-icon">📷</div>
+            <div class="upload-icon">+</div>
             <p id="uploadText">Drag & drop your photo here, or click to browse</p>
         </div>
         <input type="file" id="photoInput" accept="image/*">
@@ -498,7 +491,7 @@
             img.onload = () => {
                 userPhoto = img;
                 uploadArea.classList.add('has-photo');
-                uploadText.textContent = '✓ Photo uploaded! Click to change.';
+                uploadText.textContent = 'Photo uploaded! Click to change.';
                 drawBadge();
                 document.getElementById('downloadBtn').disabled = false;
                 document.getElementById('linkedinBtn').disabled = false;
@@ -531,86 +524,127 @@
         const W = 1080;
         const H = 1080;
 
-        // Bold background gradient
-        const bgGrad = ctx.createLinearGradient(0, 0, W, H);
-        bgGrad.addColorStop(0, '#C4784D');
-        bgGrad.addColorStop(0.5, '#D4A653');
-        bgGrad.addColorStop(1, '#A8BFA0');
-        ctx.fillStyle = bgGrad;
+        // === SOFT OUTER BACKGROUND ===
+        ctx.fillStyle = '#e8e0e0';
         ctx.fillRect(0, 0, W, H);
 
-        // Large decorative corner circles
-        ctx.globalAlpha = 0.15;
-        ctx.fillStyle = '#FFFFFF';
-        ctx.beginPath();
-        ctx.arc(0, 0, 300, 0, Math.PI * 2);
+        // Soft rose-tinted border frame
+        const frameInset = 20;
+        ctx.fillStyle = '#f2d4d4';
+        roundRect(ctx, frameInset, frameInset, W - frameInset * 2, H - frameInset * 2, 20);
         ctx.fill();
-        ctx.beginPath();
-        ctx.arc(W, H, 350, 0, Math.PI * 2);
-        ctx.fill();
-        ctx.beginPath();
-        ctx.arc(W, 0, 200, 0, Math.PI * 2);
-        ctx.fill();
-        ctx.beginPath();
-        ctx.arc(0, H, 250, 0, Math.PI * 2);
-        ctx.fill();
-        ctx.globalAlpha = 1;
 
-        // White inner card
-        const cardInset = 40;
-        ctx.fillStyle = '#FFFDFB';
-        ctx.shadowColor = 'rgba(0,0,0,0.1)';
-        ctx.shadowBlur = 30;
-        roundRect(ctx, cardInset, cardInset, W - cardInset * 2, H - cardInset * 2, 28);
+        // White card
+        const cardInset = 32;
+        const cardX = cardInset;
+        const cardY = cardInset;
+        const cardW = W - cardInset * 2;
+        const cardH = H - cardInset * 2;
+
+        ctx.shadowColor = 'rgba(0,0,0,0.08)';
+        ctx.shadowBlur = 20;
+        ctx.shadowOffsetY = 4;
+        ctx.fillStyle = '#ffffff';
+        roundRect(ctx, cardX, cardY, cardW, cardH, 16);
         ctx.fill();
         ctx.shadowBlur = 0;
+        ctx.shadowOffsetY = 0;
 
-        // Colorful top accent bar
-        const barY = cardInset;
-        const barH = 10;
+        // Thin red accent line at top of card
         ctx.save();
-        roundRect(ctx, cardInset, barY, W - cardInset * 2, 28, 28);
+        roundRect(ctx, cardX, cardY, cardW, 5, 16);
         ctx.clip();
-        const barGrad = ctx.createLinearGradient(cardInset, 0, W - cardInset, 0);
-        barGrad.addColorStop(0, '#C4784D');
-        barGrad.addColorStop(0.33, '#D4A653');
-        barGrad.addColorStop(0.66, '#A8BFA0');
-        barGrad.addColorStop(1, '#6B8C5E');
-        ctx.fillStyle = barGrad;
-        ctx.fillRect(cardInset, barY, W - cardInset * 2, barH);
+        ctx.fillStyle = '#fc0000';
+        ctx.fillRect(cardX, cardY, cardW, 5);
         ctx.restore();
 
-        // WiTG top label
-        ctx.fillStyle = '#C4784D';
-        ctx.font = '700 32px "Space Grotesk", sans-serif';
+        // Subtle blush gradient in upper area
+        ctx.save();
+        roundRect(ctx, cardX, cardY + 5, cardW, 160, 0);
+        ctx.clip();
+        const topGrad = ctx.createLinearGradient(0, cardY, 0, cardY + 160);
+        topGrad.addColorStop(0, 'rgba(252,0,0,0.04)');
+        topGrad.addColorStop(1, 'rgba(252,0,0,0)');
+        ctx.fillStyle = topGrad;
+        ctx.fillRect(cardX, cardY, cardW, 160);
+        ctx.restore();
+
+        // Subtle diagonal blush shape on card (top-right corner)
+        ctx.save();
+        roundRect(ctx, cardX, cardY, cardW, cardH, 16);
+        ctx.clip();
+        ctx.globalAlpha = 0.035;
+        ctx.fillStyle = '#fc0000';
+        ctx.beginPath();
+        ctx.moveTo(cardX + cardW * 0.5, cardY);
+        ctx.lineTo(cardX + cardW, cardY);
+        ctx.lineTo(cardX + cardW, cardY + cardH * 0.5);
+        ctx.closePath();
+        ctx.fill();
+        // Bottom-left corner
+        ctx.beginPath();
+        ctx.moveTo(cardX, cardY + cardH * 0.55);
+        ctx.lineTo(cardX, cardY + cardH);
+        ctx.lineTo(cardX + cardW * 0.45, cardY + cardH);
+        ctx.closePath();
+        ctx.fill();
+        ctx.globalAlpha = 1;
+        ctx.restore();
+
+        // === HEADER TEXT ===
+        ctx.fillStyle = '#fc0000';
+        ctx.font = '700 34px "DM Serif Display", serif';
         ctx.textAlign = 'center';
-        ctx.fillText('Women in Tech Goa', W / 2, 110);
+        ctx.fillText('WOMEN IN TECH GOA', W / 2, 100);
 
-        // Cat emoji
-        ctx.font = '44px sans-serif';
-        ctx.fillText('🐱', W / 2, 160);
+        // Subtitle
+        ctx.fillStyle = '#777777';
+        ctx.font = '500 21px "Inter", sans-serif';
+        ctx.fillText('aka WittyGirlsClub', W / 2, 136);
 
-        // Photo circle
-        const photoY = 340;
-        const photoR = 155;
+        // Small decorative dots flanking the title
+        ctx.fillStyle = '#f2d4d4';
+        ctx.beginPath();
+        ctx.arc(W / 2 - 220, 94, 4, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.beginPath();
+        ctx.arc(W / 2 + 220, 94, 4, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.fillStyle = '#fc0000';
+        ctx.beginPath();
+        ctx.arc(W / 2 - 235, 94, 3, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.beginPath();
+        ctx.arc(W / 2 + 235, 94, 3, 0, Math.PI * 2);
+        ctx.fill();
+
+        // === PHOTO CIRCLE ===
+        const photoY = 360;
+        const photoR = 145;
 
         if (userPhoto) {
-            // Colorful ring behind photo
-            const ringGrad = ctx.createLinearGradient(W/2 - photoR - 20, photoY - photoR - 20, W/2 + photoR + 20, photoY + photoR + 20);
-            ringGrad.addColorStop(0, '#C4784D');
-            ringGrad.addColorStop(0.5, '#D4A653');
-            ringGrad.addColorStop(1, '#A8BFA0');
-            ctx.fillStyle = ringGrad;
+            // Soft blush outer glow
+            ctx.shadowColor = 'rgba(252,0,0,0.15)';
+            ctx.shadowBlur = 30;
+            ctx.fillStyle = '#f2d4d4';
             ctx.beginPath();
-            ctx.arc(W / 2, photoY, photoR + 10, 0, Math.PI * 2);
+            ctx.arc(W / 2, photoY, photoR + 12, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.shadowBlur = 0;
+
+            // Red ring
+            ctx.fillStyle = '#fc0000';
+            ctx.beginPath();
+            ctx.arc(W / 2, photoY, photoR + 8, 0, Math.PI * 2);
             ctx.fill();
 
-            // White gap
-            ctx.fillStyle = '#FFFDFB';
+            // White gap ring
+            ctx.fillStyle = '#ffffff';
             ctx.beginPath();
-            ctx.arc(W / 2, photoY, photoR + 5, 0, Math.PI * 2);
+            ctx.arc(W / 2, photoY, photoR + 3, 0, Math.PI * 2);
             ctx.fill();
 
+            // Clip and draw photo
             ctx.save();
             ctx.beginPath();
             ctx.arc(W / 2, photoY, photoR, 0, Math.PI * 2);
@@ -634,103 +668,149 @@
             ctx.drawImage(img, drawX, drawY, drawW, drawH);
             ctx.restore();
         } else {
-            // Placeholder circle
-            ctx.fillStyle = '#F0E6DA';
+            // Placeholder
+            ctx.fillStyle = '#f2d4d4';
+            ctx.beginPath();
+            ctx.arc(W / 2, photoY, photoR + 12, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.fillStyle = '#fc0000';
+            ctx.globalAlpha = 0.3;
+            ctx.beginPath();
+            ctx.arc(W / 2, photoY, photoR + 8, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.globalAlpha = 1;
+            ctx.fillStyle = '#faf5f5';
             ctx.beginPath();
             ctx.arc(W / 2, photoY, photoR, 0, Math.PI * 2);
             ctx.fill();
-            ctx.fillStyle = '#A89480';
-            ctx.font = '60px sans-serif';
+            ctx.fillStyle = '#999';
+            ctx.font = '500 24px "Inter", sans-serif';
             ctx.textAlign = 'center';
-            ctx.fillText('📷', W / 2, photoY + 18);
+            ctx.fillText('Your photo here', W / 2, photoY + 8);
         }
 
-        // Name
+        // === NAME ===
         const name = nameInput.value.trim() || 'Your Name';
-        ctx.fillStyle = '#3D2E22';
+        ctx.fillStyle = '#1a1a1a';
         ctx.textAlign = 'center';
 
-        let fontSize = 54;
-        ctx.font = `700 ${fontSize}px "Space Grotesk", sans-serif`;
-        while (ctx.measureText(name).width > W - 180 && fontSize > 28) {
+        let fontSize = 52;
+        ctx.font = `700 ${fontSize}px "DM Serif Display", serif`;
+        while (ctx.measureText(name).width > W - 200 && fontSize > 28) {
             fontSize -= 2;
-            ctx.font = `700 ${fontSize}px "Space Grotesk", sans-serif`;
+            ctx.font = `700 ${fontSize}px "DM Serif Display", serif`;
         }
-        ctx.fillText(name, W / 2, 575);
+        ctx.fillText(name, W / 2, 580);
 
-        // "I am excited to join as a" text
-        ctx.fillStyle = '#6E5A4A';
-        ctx.font = '500 28px "Inter", sans-serif';
+        // "is excited to join as a"
+        ctx.fillStyle = '#555555';
+        ctx.font = '500 24px "Inter", sans-serif';
         ctx.textAlign = 'center';
-        ctx.fillText('I am excited to join as a', W / 2, 630);
+        ctx.fillText('is excited to join as a', W / 2, 625);
 
-        // Member type badge
+        // === MEMBER TYPE BADGE ===
         if (memberType === 'founding') {
-            const pillText = '★ FOUNDING MEMBER ★';
-            ctx.font = '700 36px "Space Grotesk", sans-serif';
+            const pillText = 'FOUNDING MEMBER';
+            ctx.font = '700 34px "DM Serif Display", serif';
             const pillW = ctx.measureText(pillText).width + 70;
-            const pillH = 64;
+            const pillH = 58;
             const pillX = W / 2 - pillW / 2;
-            const pillY = 655;
+            const pillY = 650;
 
-            // Gradient pill
-            const pillGrad = ctx.createLinearGradient(pillX, pillY, pillX + pillW, pillY);
-            pillGrad.addColorStop(0, '#C4784D');
-            pillGrad.addColorStop(1, '#A85D35');
-            ctx.fillStyle = pillGrad;
-            roundRect(ctx, pillX, pillY, pillW, pillH, 32);
+            ctx.fillStyle = '#fc0000';
+            roundRect(ctx, pillX, pillY, pillW, pillH, 29);
             ctx.fill();
 
-            ctx.fillStyle = 'white';
+            ctx.fillStyle = '#ffffff';
             ctx.textAlign = 'center';
-            ctx.fillText(pillText, W / 2, pillY + 44);
+            ctx.fillText(pillText, W / 2, pillY + 41);
         } else {
             const pillText = 'MEMBER';
-            ctx.font = '700 36px "Space Grotesk", sans-serif';
+            ctx.font = '700 34px "DM Serif Display", serif';
             const pillW = ctx.measureText(pillText).width + 70;
-            const pillH = 64;
+            const pillH = 58;
             const pillX = W / 2 - pillW / 2;
-            const pillY = 655;
+            const pillY = 650;
 
-            const pillGrad = ctx.createLinearGradient(pillX, pillY, pillX + pillW, pillY);
-            pillGrad.addColorStop(0, '#6B8C5E');
-            pillGrad.addColorStop(1, '#A8BFA0');
-            ctx.fillStyle = pillGrad;
-            roundRect(ctx, pillX, pillY, pillW, pillH, 32);
+            ctx.fillStyle = '#fff0f0';
+            roundRect(ctx, pillX, pillY, pillW, pillH, 29);
             ctx.fill();
+            ctx.strokeStyle = '#fc0000';
+            ctx.lineWidth = 2;
+            roundRect(ctx, pillX, pillY, pillW, pillH, 29);
+            ctx.stroke();
 
-            ctx.fillStyle = 'white';
+            ctx.fillStyle = '#cc0000';
             ctx.textAlign = 'center';
-            ctx.fillText(pillText, W / 2, pillY + 44);
+            ctx.fillText(pillText, W / 2, pillY + 41);
         }
 
-        // Tagline
-        ctx.fillStyle = '#6E5A4A';
-        ctx.font = '400 26px "Inter", sans-serif';
-        ctx.textAlign = 'center';
-        ctx.fillText("Goa's community for women & non-binary folks in STEM", W / 2, 800);
+        // === DIVIDER ===
+        const divY = 748;
+        ctx.strokeStyle = '#f2d4d4';
+        ctx.lineWidth = 1.5;
+        ctx.beginPath();
+        ctx.moveTo(W / 2 - 180, divY);
+        ctx.lineTo(W / 2 - 12, divY);
+        ctx.stroke();
+        ctx.beginPath();
+        ctx.moveTo(W / 2 + 12, divY);
+        ctx.lineTo(W / 2 + 180, divY);
+        ctx.stroke();
+        // Small red diamond
+        ctx.fillStyle = '#fc0000';
+        ctx.save();
+        ctx.translate(W / 2, divY);
+        ctx.rotate(Math.PI / 4);
+        ctx.fillRect(-4, -4, 8, 8);
+        ctx.restore();
 
-        // Colorful decorative dots
-        const dotColors = ['#C4784D', '#D4A653', '#A8BFA0', '#6B8C5E'];
-        for (let i = 0; i < 4; i++) {
-            ctx.fillStyle = dotColors[i];
-            ctx.beginPath();
-            ctx.arc(W / 2 - 60 + i * 40, 850, 8, 0, Math.PI * 2);
-            ctx.fill();
+        // === TAGLINE ===
+        ctx.fillStyle = '#555555';
+        ctx.font = 'italic 400 22px "DM Serif Display", serif';
+        ctx.textAlign = 'center';
+        ctx.fillText("Goa's community for women & non-binary folks in STEM", W / 2, 795);
+
+        // === THREE VALUES ===
+        const vals = ['LEARN', 'CONNECT', 'GROW'];
+        const valSpacing = 155;
+        const valsY = 855;
+        ctx.font = '700 18px "Inter", sans-serif';
+        for (let i = 0; i < 3; i++) {
+            const vx = W / 2 + (i - 1) * valSpacing;
+            ctx.fillStyle = i === 1 ? '#fc0000' : '#1a1a1a';
+            ctx.fillText(vals[i], vx, valsY);
         }
+        // Soft dots between
+        ctx.fillStyle = '#f2d4d4';
+        ctx.beginPath();
+        ctx.arc(W / 2 - valSpacing / 2, valsY - 5, 3.5, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.beginPath();
+        ctx.arc(W / 2 + valSpacing / 2, valsY - 5, 3.5, 0, Math.PI * 2);
+        ctx.fill();
 
-        // WiTG large watermark
-        ctx.fillStyle = '#C4784D';
-        ctx.globalAlpha = 0.08;
-        ctx.font = '700 140px "Space Grotesk", sans-serif';
-        ctx.textAlign = 'center';
-        ctx.fillText('WiTG', W / 2, 975);
-        ctx.globalAlpha = 1;
+        // === BOTTOM SECTION ===
+        // Soft blush bar at bottom
+        ctx.save();
+        roundRect(ctx, cardX, cardY + cardH - 60, cardW, 60, 16);
+        ctx.clip();
+        ctx.fillStyle = '#faf5f5';
+        ctx.fillRect(cardX, cardY + cardH - 60, cardW, 60);
+        // Thin top line
+        ctx.strokeStyle = '#f2d4d4';
+        ctx.lineWidth = 1;
+        ctx.beginPath();
+        ctx.moveTo(cardX + 60, cardY + cardH - 60);
+        ctx.lineTo(cardX + cardW - 60, cardY + cardH - 60);
+        ctx.stroke();
+        ctx.restore();
 
         // Website URL
-        ctx.fillStyle = '#C4784D';
-        ctx.font = '600 26px "Inter", sans-serif';
-        ctx.fillText('womenintechgoa.com', W / 2, 1020);
+        ctx.fillStyle = '#cc0000';
+        ctx.font = '600 22px "Inter", sans-serif';
+        ctx.textAlign = 'center';
+        ctx.fillText('womenintechgoa.com', W / 2, cardY + cardH - 22);
     }
 
     function showToast(msg) {
@@ -772,16 +852,16 @@
 
         // Build post text and copy to clipboard
         const role = memberType === 'founding' ? 'Founding Member' : 'Member';
-        const postText = `I am excited to join as a ${role} of @Women in Tech Goa (WiTG)! 🎉
+        const postText = `I am excited to join as a ${role} of @Women in Tech Goa (WiTG)!
 
 WiTG is Goa's community for women and non-binary folks in STEM. If you're in Goa and passionate about science, technology, engineering, or mathematics, come join us!
 
-👉 womenintechgoa.com
+womenintechgoa.com
 
 #WomenInTech #STEM #WiTG #WomenInSTEM #Goa #WomenInTechGoa`;
 
         navigator.clipboard.writeText(postText).then(() => {
-            alert('Post text copied to clipboard! ✅\n\nLinkedIn will open next:\n1. Click "Start a post"\n2. Paste the text (Ctrl+V / Cmd+V)\n3. A link preview will appear automatically — click the ✕ on it to remove it\n4. Now click the 📷 image icon to attach your downloaded badge\n5. Tag the page: delete "@Women in Tech Goa" from the text, re-type it, and select the page from the dropdown\n\nNote: You must remove the link preview first, otherwise the image attach option won\'t appear!');
+            alert('Post text copied to clipboard!\n\nLinkedIn will open next:\n1. Click "Start a post"\n2. Paste the text (Ctrl+V / Cmd+V)\n3. A link preview will appear automatically \u2014 click the \u2715 on it to remove it\n4. Now click the image icon to attach your downloaded badge\n5. Tag the page: delete "@Women in Tech Goa" from the text, re-type it, and select the page from the dropdown\n\nNote: You must remove the link preview first, otherwise the image attach option won\'t appear!');
             window.open('https://www.linkedin.com/feed/', '_blank');
         }).catch(() => {
             window.open('https://www.linkedin.com/feed/', '_blank');
