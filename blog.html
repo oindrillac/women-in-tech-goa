@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-9ZCC45W2FS"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-9ZCC45W2FS');
+    </script>
+    <title>Blog | WiTG — Women in Tech Goa</title>
+    <meta name="description" content="Read stories, insights, and updates from the Women in Tech Goa community.">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#fc0000">
+    <link rel="canonical" href="https://womenintechgoa.com/blog">
+    <meta property="og:title" content="Blog | WiTG — Women in Tech Goa">
+    <meta property="og:description" content="Stories, insights, and updates from the Women in Tech Goa community.">
+    <meta property="og:image" content="https://womenintechgoa.com/images/meet-1/web/IMG_6681.jpg">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://womenintechgoa.com/blog">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Blog | WiTG — Women in Tech Goa">
+    <meta name="twitter:description" content="Stories, insights, and updates from the Women in Tech Goa community.">
+    <meta name="twitter:image" content="https://womenintechgoa.com/images/meet-1/web/IMG_6681.jpg">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" sizes="180x180" href="/favicon.png">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="apple-touch-icon" href="/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --red: #fc0000;
+            --red-soft: #fff0f0;
+            --red-deep: #cc0000;
+            --bg: #f4f6fc;
+            --bg-card: #ffffff;
+            --text: #000000;
+            --text-secondary: #333333;
+            --text-muted: #666666;
+            --border: #e0e0e0;
+        }
+
+        html { scroll-behavior: smooth; overflow-x: hidden; }
+
+        body {
+            overflow-x: hidden;
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'DM Serif Display', serif;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+        }
+
+        a { color: inherit; text-decoration: none; }
+
+        /* ── Navigation ── */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            background: rgba(244, 246, 252, 0.92);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav-inner {
+            max-width: 1080px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 64px;
+        }
+
+        .nav-logo {
+            font-family: 'DM Serif Display', serif;
+            font-weight: 700;
+            font-size: 1.15rem;
+            color: var(--text);
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .nav-links { display: flex; gap: 2rem; list-style: none; align-items: center; }
+
+        .nav-links a {
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover { color: var(--text); }
+
+        .nav-links a.active {
+            color: var(--red);
+            font-weight: 600;
+        }
+
+        .nav-cta {
+            background: var(--red);
+            color: #fff !important;
+            padding: 0.5rem 1.2rem;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: background 0.2s;
+        }
+
+        .nav-cta:hover { background: var(--red-deep); }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 4px;
+        }
+
+        .hamburger span {
+            width: 22px;
+            height: 2px;
+            background: var(--text);
+            border-radius: 2px;
+            transition: 0.3s;
+        }
+
+        /* ── Page Header ── */
+        .page-header {
+            padding: 120px 2rem 3rem;
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .page-header h1 {
+            font-size: 2.8rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .page-header p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+        }
+
+        /* ── Blog List ── */
+        .blog-list {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 2rem 4rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .blog-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            overflow: hidden;
+            transition: border-color 0.2s, box-shadow 0.2s;
+            cursor: pointer;
+        }
+
+        .blog-card:hover {
+            border-color: #000;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+        }
+
+        .blog-card a {
+            display: flex;
+            gap: 1.5rem;
+            padding: 1.5rem;
+            align-items: center;
+        }
+
+        .blog-card-image {
+            width: 180px;
+            height: 130px;
+            border-radius: 10px;
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+
+        .blog-card-content {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .blog-card-meta {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .blog-card-date {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .blog-card-tag {
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--red);
+            background: var(--red-soft);
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+        }
+
+        .blog-card-title {
+            font-size: 1.25rem;
+            margin-bottom: 0.4rem;
+            color: var(--text);
+        }
+
+        .blog-card-excerpt {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .blog-card-arrow {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            flex-shrink: 0;
+            transition: transform 0.2s;
+        }
+
+        .blog-card:hover .blog-card-arrow {
+            transform: translateX(4px);
+            color: var(--red);
+        }
+
+        /* ── Empty State ── */
+        .blog-empty {
+            text-align: center;
+            padding: 4rem 2rem;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .blog-empty-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            opacity: 0.3;
+        }
+
+        .blog-empty h3 {
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .blog-empty p {
+            color: var(--text-muted);
+        }
+
+        /* ── Blog Post (individual) ── */
+        .blog-post {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 120px 2rem 4rem;
+            display: none;
+        }
+
+        .blog-post.visible {
+            display: block;
+        }
+
+        .blog-post-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            transition: color 0.2s;
+        }
+
+        .blog-post-back:hover {
+            color: var(--red);
+        }
+
+        .blog-post-meta {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+        }
+
+        .blog-post-cover {
+            width: 100%;
+            border-radius: 14px;
+            margin-bottom: 2rem;
+            max-height: 400px;
+            object-fit: cover;
+        }
+
+        .blog-post h1 {
+            font-size: 2.2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .blog-post-body {
+            font-size: 1.05rem;
+            line-height: 1.85;
+            color: var(--text-secondary);
+        }
+
+        .blog-post-body p {
+            margin-bottom: 1.25rem;
+        }
+
+        .blog-post-body h2 {
+            font-size: 1.5rem;
+            margin: 2rem 0 1rem;
+            color: var(--text);
+        }
+
+        .blog-post-body h3 {
+            font-size: 1.2rem;
+            margin: 1.5rem 0 0.75rem;
+            color: var(--text);
+        }
+
+        .blog-post-body ul, .blog-post-body ol {
+            margin: 1rem 0 1.25rem 1.5rem;
+        }
+
+        .blog-post-body li {
+            margin-bottom: 0.5rem;
+        }
+
+        .blog-post-body blockquote {
+            border-left: 3px solid var(--red);
+            padding: 0.75rem 1.25rem;
+            margin: 1.5rem 0;
+            background: var(--red-soft);
+            border-radius: 0 8px 8px 0;
+            font-style: italic;
+        }
+
+        .blog-post-body img {
+            max-width: 100%;
+            border-radius: 10px;
+            margin: 1.5rem 0;
+        }
+
+        /* ── Footer ── */
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .footer-inner {
+            max-width: 1080px;
+            margin: 0 auto;
+        }
+
+        .footer-brand {
+            font-family: 'DM Serif Display', serif;
+            font-size: 1rem;
+            display: block;
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-links {
+            list-style: none;
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 1rem;
+        }
+
+        .footer-links a {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover { color: var(--text); }
+
+        .footer-copy {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        /* ── Responsive ── */
+        @media (max-width: 768px) {
+            .hamburger { display: flex; }
+            .nav-links { display: none; }
+            .nav-links.open {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                top: 64px;
+                left: 0;
+                right: 0;
+                background: rgba(244, 246, 252, 0.98);
+                backdrop-filter: blur(16px);
+                padding: 1rem 2rem 1.5rem;
+                gap: 0.75rem;
+                border-bottom: 1px solid var(--border);
+            }
+
+            .page-header h1 { font-size: 2rem; }
+
+            .blog-card a {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .blog-card-image {
+                width: 100%;
+                height: 180px;
+            }
+
+            .blog-card-arrow { display: none; }
+
+            .blog-post h1 { font-size: 1.6rem; }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="nav-inner">
+        <a href="index.html" class="nav-logo">WiTG</a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="index.html#why">Why</a></li>
+            <li><a href="index.html#meetups">Meetups</a></li>
+            <li><a href="index.html#community">Community</a></li>
+            <li><a href="blog.html" class="active">Blog</a></li>
+            <li><a href="https://forms.gle/dXQgtnwmjTtkHCodA" target="_blank" class="nav-cta">Become a Founding Member</a></li>
+        </ul>
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+            <span></span><span></span><span></span>
+        </button>
+    </div>
+</nav>
+
+<!-- ── Blog Listing View ── -->
+<div id="blogListing">
+    <div class="page-header">
+        <h1>Blog</h1>
+        <p>Stories, insights, and updates from the WiTG community</p>
+    </div>
+
+    <div class="blog-list" id="blogList">
+        <!-- Blog cards are rendered by JavaScript from the BLOGS array below -->
+    </div>
+</div>
+
+<!-- ── Blog Post View (single post) ── -->
+<div class="blog-post" id="blogPost">
+    <a href="#" class="blog-post-back" id="backToList">&larr; Back to all posts</a>
+    <div class="blog-post-meta" id="postMeta"></div>
+    <img class="blog-post-cover" id="postCover" src="" alt="">
+    <h1 id="postTitle"></h1>
+    <div class="blog-post-body" id="postBody"></div>
+</div>
+
+<footer>
+    <div class="footer-inner">
+        <span class="footer-brand">WiTG | Women in Tech Goa</span>
+        <ul class="footer-links">
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="index.html#why">Why</a></li>
+            <li><a href="index.html#meetups">Meetups</a></li>
+            <li><a href="index.html#community">Community</a></li>
+            <li><a href="https://instagram.com/womenintech.goa" target="_blank" rel="noopener">Instagram</a></li>
+            <li><a href="https://www.linkedin.com/company/women-in-tech-goa/" target="_blank" rel="noopener">LinkedIn</a></li>
+            <li><a href="mailto:womenintechgoa@gmail.com">womenintechgoa@gmail.com</a></li>
+        </ul>
+        <p class="footer-copy">&copy; 2026 WittyG | Women in Tech Goa. Made with purpose in Goa.</p>
+    </div>
+</footer>
+
+<script>
+    // ── Blog Data ──
+    // Add new blog posts here. Each post needs: slug, title, date, tag, excerpt, image, and body (HTML string).
+    const BLOGS = [
+        {
+            slug: 'first-meetup-verna',
+            title: 'Our First Meetup: How It All Started',
+            date: 'March 2026',
+            tag: 'Meetup',
+            excerpt: 'A look back at the very first Women in Tech Goa meetup in Verna — the conversations, the connections, and the beginning of something special.',
+            image: 'images/meet-1/web/IMG_6681.jpg',
+            body: `
+                <p>On a sunny afternoon in Verna, Goa, a group of women came together for the very first Women in Tech Goa meetup. What started as an idea — a simple question of "why isn't there a community like this here?" — turned into a room full of energy, laughter, and shared ambition.</p>
+
+                <h2>The Spark</h2>
+                <p>Goa's tech scene is growing, but women in STEM here have long lacked a dedicated space to connect, learn, and support each other. WiTG was born from that gap — a community where women and non-binary folks in science, technology, engineering, and mathematics can find their people.</p>
+
+                <h2>What Happened</h2>
+                <p>The first meetup was intentionally informal. No rigid agenda, no keynote stage. Just real conversations. Members introduced themselves, shared what they're working on, and talked about the challenges they face in their fields.</p>
+                <p>From software engineers to data scientists, researchers to designers — the diversity of backgrounds in the room was exactly what we'd hoped for.</p>
+
+                <h2>What's Next</h2>
+                <p>This was just the beginning. We're planning regular meetups, workshops, and collaborative projects. If you're a woman or non-binary person in STEM living in or around Goa, we'd love to have you join us.</p>
+
+                <blockquote>STEM should be shaped by everyone. We're here to make sure it is.</blockquote>
+            `
+        }
+    ];
+
+    // ── Rendering ──
+    const blogListing = document.getElementById('blogListing');
+    const blogPost = document.getElementById('blogPost');
+    const blogList = document.getElementById('blogList');
+
+    function renderBlogList() {
+        if (BLOGS.length === 0) {
+            blogList.innerHTML = `
+                <div class="blog-empty">
+                    <div class="blog-empty-icon">&#9998;</div>
+                    <h3>Coming Soon</h3>
+                    <p>We're working on our first posts. Check back soon for stories and updates from the WiTG community.</p>
+                </div>`;
+            return;
+        }
+
+        blogList.innerHTML = BLOGS.map(post => `
+            <div class="blog-card" onclick="showPost('${post.slug}')">
+                <a href="#${post.slug}">
+                    <img class="blog-card-image" src="${post.image}" alt="${post.title}" loading="lazy">
+                    <div class="blog-card-content">
+                        <div class="blog-card-meta">
+                            <span class="blog-card-tag">${post.tag}</span>
+                            <span class="blog-card-date">${post.date}</span>
+                        </div>
+                        <h3 class="blog-card-title">${post.title}</h3>
+                        <p class="blog-card-excerpt">${post.excerpt}</p>
+                    </div>
+                    <span class="blog-card-arrow">&rarr;</span>
+                </a>
+            </div>
+        `).join('');
+    }
+
+    function showPost(slug) {
+        const post = BLOGS.find(b => b.slug === slug);
+        if (!post) return;
+
+        document.getElementById('postMeta').innerHTML = `
+            <span class="blog-card-tag">${post.tag}</span>
+            <span class="blog-card-date">${post.date}</span>`;
+        document.getElementById('postCover').src = post.image;
+        document.getElementById('postCover').alt = post.title;
+        document.getElementById('postTitle').textContent = post.title;
+        document.getElementById('postBody').innerHTML = post.body;
+
+        blogListing.style.display = 'none';
+        blogPost.classList.add('visible');
+        window.scrollTo(0, 0);
+        history.pushState(null, '', `#${slug}`);
+    }
+
+    function showList() {
+        blogPost.classList.remove('visible');
+        blogListing.style.display = 'block';
+        history.pushState(null, '', 'blog.html');
+    }
+
+    document.getElementById('backToList').addEventListener('click', (e) => {
+        e.preventDefault();
+        showList();
+    });
+
+    // Handle direct URL with hash
+    function handleHash() {
+        const hash = window.location.hash.slice(1);
+        if (hash) {
+            const post = BLOGS.find(b => b.slug === hash);
+            if (post) {
+                showPost(hash);
+                return;
+            }
+        }
+        showList();
+    }
+
+    window.addEventListener('popstate', handleHash);
+
+    // Mobile nav toggle
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('navLinks');
+    hamburger.addEventListener('click', () => navLinks.classList.toggle('open'));
+    navLinks.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => navLinks.classList.remove('open'));
+    });
+
+    // Init
+    renderBlogList();
+    handleHash();
+</script>
+</body>
+</html>
