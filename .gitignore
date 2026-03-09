@@ -1,0 +1,4 @@
+.DS_Store
+# Original high-res photos (only commit web-optimized versions)
+images/meet-1/*.JPG
+images/meet-1/*.HEIC
