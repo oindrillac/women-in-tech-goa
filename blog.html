@@ -219,6 +219,57 @@
             font-weight: 500;
         }
 
+        /* ── Author ── */
+        .author {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .author-avatar {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+
+        .author-initial {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: var(--red-soft);
+            color: var(--red);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .author-name {
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+        }
+
+        .author-large {
+            gap: 0.6rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .author-large .author-avatar,
+        .author-large .author-initial {
+            width: 36px;
+            height: 36px;
+            font-size: 0.85rem;
+        }
+
+        .author-large .author-name {
+            font-size: 0.9rem;
+        }
+
         .blog-card-tag {
             font-size: 0.7rem;
             font-weight: 600;
@@ -487,6 +538,7 @@
     <div class="blog-post-meta" id="postMeta"></div>
     <img class="blog-post-cover" id="postCover" src="" alt="">
     <h1 id="postTitle"></h1>
+    <div id="postAuthor"></div>
     <div class="blog-post-body" id="postBody"></div>
 </div>
 
@@ -508,13 +560,15 @@
 
 <script>
     // ── Blog Data ──
-    // Add new blog posts here. Each post needs: slug, title, date, tag, excerpt, image, and body (HTML string).
+    // Add new blog posts here. Each post needs: slug, title, date, tag, excerpt, image, author, and body (HTML string).
+    // author: { name: 'Name', photo: 'path/to/photo.jpg' } — photo is optional, falls back to initial.
     const BLOGS = [
         {
             slug: 'first-meetup-verna',
             title: 'Our First Meetup: How It All Started',
-            date: 'March 2026',
+            date: 'March 8, 2026',
             tag: 'Meetup',
+            author: { name: 'WiTG' },
             excerpt: 'A look back at the very first Women in Tech Goa meetup in Verna — the conversations, the connections, and the beginning of something special.',
             image: 'images/meet-1/web/group-photo.jpg',
             body: `
@@ -522,6 +576,15 @@
             `
         }
     ];
+
+    // ── Helpers ──
+    function authorHTML(author, large) {
+        const cls = large ? 'author author-large' : 'author';
+        const avatar = author.photo
+            ? `<img class="author-avatar" src="${author.photo}" alt="${author.name}">`
+            : `<span class="author-initial">${author.name.charAt(0).toUpperCase()}</span>`;
+        return `<div class="${cls}">${avatar}<span class="author-name">${author.name}</span></div>`;
+    }
 
     // ── Rendering ──
     const blogListing = document.getElementById('blogListing');
@@ -550,6 +613,7 @@
                         </div>
                         <h3 class="blog-card-title">${post.title}</h3>
                         <p class="blog-card-excerpt">${post.excerpt}</p>
+                        ${post.author ? authorHTML(post.author) : ''}
                     </div>
                     <span class="blog-card-arrow">&rarr;</span>
                 </a>
@@ -564,6 +628,7 @@
         document.getElementById('postMeta').innerHTML = `
             <span class="blog-card-tag">${post.tag}</span>
             <span class="blog-card-date">${post.date}</span>`;
+        document.getElementById('postAuthor').innerHTML = post.author ? authorHTML(post.author, true) : '';
         document.getElementById('postCover').src = post.image;
         document.getElementById('postCover').alt = post.title;
         document.getElementById('postTitle').textContent = post.title;
