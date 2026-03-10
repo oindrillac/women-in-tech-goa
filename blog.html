@@ -569,6 +569,33 @@
             font-style: italic;
         }
 
+        .scroll-title-wrap {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+        }
+
+        .scroll-title-wrap h1 {
+            text-align: center;
+        }
+
+        .scroll-feather {
+            font-size: 2rem;
+            opacity: 0.7;
+            transform: scaleX(-1);
+        }
+
+        .blog-post-scroll .blog-post-body .scroll-ink-sep {
+            text-align: center;
+            color: #a8873e;
+            font-size: 0.9rem;
+            margin: 0.6em 0;
+            letter-spacing: 0.3rem;
+            opacity: 0.6;
+            text-indent: 0;
+        }
+
         /* ── Footer ── */
         footer {
             border-top: 1px solid var(--border);
@@ -682,7 +709,7 @@
     <a href="#" class="blog-post-back" id="backToList">&larr; Back to all posts</a>
     <div class="blog-post-meta" id="postMeta"></div>
     <img class="blog-post-cover" id="postCover" src="" alt="">
-    <h1 id="postTitle"></h1>
+    <div id="postTitleWrap"><h1 id="postTitle"></h1></div>
     <div id="postByline" class="scroll-byline" style="display:none;"></div>
     <div id="postAuthor"></div>
     <div class="blog-post-body" id="postBody"></div>
@@ -725,7 +752,11 @@
 
                 <p>One is pleased to report that the first gathering of WiTG proved far more spirited than one might have anticipated. What began as a simple assembly soon revealed itself to be a lively constellation of bright minds, fresh ambition, and a rather contagious sense of curiosity.</p>
 
+                <p class="scroll-ink-sep">~ &#10058; ~</p>
+
                 <p>A particularly striking feature of the evening was the unmistakable presence of youthful energy. Many in attendance appeared to be navigating the thrilling and occasionally bewildering world of their very first jobs after college. Questions flowed freely, ideas were exchanged with enthusiasm, and the room carried the unmistakable hum of people only just beginning to discover what they are capable of.</p>
+
+                <p class="scroll-ink-sep">~ &#10058; ~</p>
 
                 <p>Yet, dear reader, youthful curiosity was not the only force in the room. Hidden among the crowd were also a few quietly formidable minds. Two accomplished doctorates in molecular biology had joined the gathering, lending the evening a certain intellectual sparkle. One could almost imagine the molecules themselves feeling slightly intimidated.</p>
 
@@ -838,7 +869,16 @@
         document.getElementById('postAuthor').innerHTML = post.author ? authorHTML(post.author, true) : '';
         document.getElementById('postCover').src = post.image;
         document.getElementById('postCover').alt = post.title;
-        document.getElementById('postTitle').textContent = post.title;
+        const titleWrap = document.getElementById('postTitleWrap');
+        const titleEl = document.getElementById('postTitle');
+        titleEl.textContent = post.title;
+        if (post.scroll) {
+            titleWrap.className = 'scroll-title-wrap';
+            titleWrap.innerHTML = `<span class="scroll-feather">&#x1F4DC;</span><h1 id="postTitle" style="font-family:'Cormorant Garamond',Georgia,serif;font-style:italic;">${post.title}</h1><span class="scroll-feather" style="transform:none;">&#9998;</span>`;
+        } else {
+            titleWrap.className = '';
+            titleWrap.innerHTML = `<h1 id="postTitle">${post.title}</h1>`;
+        }
         document.getElementById('postBody').innerHTML = post.body;
 
         // Apply scroll theme if post has scroll: true
