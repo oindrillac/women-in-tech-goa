@@ -31,7 +31,7 @@
     <link rel="apple-touch-icon" href="/favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,600&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,600&family=Dancing+Script:wght@400;500;600;700&family=Pinyon+Script&display=swap" rel="stylesheet">
     <style>
         *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -427,31 +427,43 @@
         /* ── Scroll / Whistledown Theme ── */
         .blog-post-scroll .blog-post-body {
             background:
-                /* Worn edges - darker staining around borders */
-                radial-gradient(ellipse at 0% 0%, rgba(120, 90, 40, 0.12) 0%, transparent 30%),
-                radial-gradient(ellipse at 100% 0%, rgba(130, 100, 50, 0.10) 0%, transparent 25%),
-                radial-gradient(ellipse at 0% 100%, rgba(130, 100, 50, 0.10) 0%, transparent 25%),
-                radial-gradient(ellipse at 100% 100%, rgba(120, 90, 40, 0.12) 0%, transparent 30%),
-                /* Age spots / foxing */
-                radial-gradient(circle at 15% 25%, rgba(160, 120, 60, 0.06) 0%, transparent 8%),
-                radial-gradient(circle at 72% 60%, rgba(160, 120, 60, 0.05) 0%, transparent 6%),
-                radial-gradient(circle at 85% 15%, rgba(160, 120, 60, 0.04) 0%, transparent 5%),
-                radial-gradient(circle at 30% 80%, rgba(160, 120, 60, 0.05) 0%, transparent 7%),
-                /* Uneven yellowing */
-                linear-gradient(170deg, #f5e6c8 0%, #f0dbb8 20%, #f3e2c5 40%, #ecdabc 60%, #f2e0c2 80%, #eedcbe 100%);
+                /* Worn edges - heavy dark staining around borders */
+                radial-gradient(ellipse at 0% 0%, rgba(90, 60, 20, 0.25) 0%, transparent 35%),
+                radial-gradient(ellipse at 100% 0%, rgba(100, 70, 30, 0.20) 0%, transparent 30%),
+                radial-gradient(ellipse at 0% 100%, rgba(100, 70, 30, 0.20) 0%, transparent 30%),
+                radial-gradient(ellipse at 100% 100%, rgba(90, 60, 20, 0.25) 0%, transparent 35%),
+                /* Edge darkening - top and bottom */
+                linear-gradient(to bottom, rgba(80, 50, 15, 0.12) 0%, transparent 8%),
+                linear-gradient(to top, rgba(80, 50, 15, 0.12) 0%, transparent 8%),
+                /* Crease / fold lines */
+                linear-gradient(to right, transparent 49.5%, rgba(120, 90, 40, 0.08) 49.8%, rgba(120, 90, 40, 0.12) 50%, rgba(120, 90, 40, 0.08) 50.2%, transparent 50.5%),
+                linear-gradient(to bottom, transparent 32%, rgba(120, 90, 40, 0.06) 32.5%, transparent 33%, transparent 65%, rgba(120, 90, 40, 0.06) 65.5%, transparent 66%),
+                /* Heavy foxing / age spots */
+                radial-gradient(circle at 12% 18%, rgba(140, 100, 40, 0.12) 0%, transparent 6%),
+                radial-gradient(circle at 72% 55%, rgba(140, 100, 40, 0.10) 0%, transparent 5%),
+                radial-gradient(circle at 85% 12%, rgba(140, 100, 40, 0.09) 0%, transparent 4%),
+                radial-gradient(circle at 28% 75%, rgba(140, 100, 40, 0.11) 0%, transparent 6%),
+                radial-gradient(circle at 55% 35%, rgba(140, 100, 40, 0.07) 0%, transparent 5%),
+                radial-gradient(circle at 90% 80%, rgba(140, 100, 40, 0.10) 0%, transparent 7%),
+                radial-gradient(circle at 8% 55%, rgba(140, 100, 40, 0.08) 0%, transparent 4%),
+                radial-gradient(circle at 65% 90%, rgba(140, 100, 40, 0.09) 0%, transparent 5%),
+                radial-gradient(circle at 40% 10%, rgba(140, 100, 40, 0.07) 0%, transparent 4%),
+                /* Uneven yellowing — more pronounced */
+                linear-gradient(170deg, #eedbb0 0%, #e8d1a4 20%, #f0dcb8 40%, #e5cda0 60%, #ebd6b0 80%, #e3cba0 100%);
             border: none;
             border-radius: 2px;
             padding: 3rem 2.5rem;
             position: relative;
             box-shadow:
-                0 0 0 1px rgba(140, 110, 60, 0.2),
-                0 3px 25px rgba(100, 70, 30, 0.15),
-                inset 0 0 80px rgba(160, 130, 80, 0.1);
-            font-family: 'Cormorant Garamond', Georgia, serif;
-            font-size: 1.15rem;
+                0 0 0 1px rgba(120, 90, 40, 0.3),
+                0 4px 30px rgba(80, 50, 15, 0.2),
+                inset 0 0 100px rgba(140, 110, 60, 0.15);
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.25rem;
+            font-weight: 500;
             line-height: 2;
-            color: #2e2310;
-            font-style: italic;
+            color: #2a1d0a;
+            font-style: normal;
         }
 
         .blog-post-scroll .blog-post-body::before {
@@ -461,39 +473,41 @@
             left: 0;
             right: 0;
             bottom: 0;
-            /* Subtle noise/grain texture via CSS */
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+            /* Heavier noise/grain texture for aged feel */
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='5' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
             pointer-events: none;
-            opacity: 0.5;
+            opacity: 0.7;
         }
 
         .blog-post-scroll .blog-post-body::after {
             content: '';
             position: absolute;
-            top: 12px;
-            left: 12px;
-            right: 12px;
-            bottom: 12px;
-            border: 1px solid rgba(160, 120, 60, 0.18);
+            top: 10px;
+            left: 10px;
+            right: 10px;
+            bottom: 10px;
+            border: 1px solid rgba(140, 100, 50, 0.22);
+            box-shadow: inset 0 0 20px rgba(140, 100, 50, 0.06);
             pointer-events: none;
         }
 
         .blog-post-scroll .blog-post-body h2 {
-            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-family: 'Pinyon Script', cursive;
             color: #3d2a10;
-            font-size: 1.6rem;
-            font-weight: 600;
-            font-style: italic;
-            border-bottom: 1px solid rgba(160, 120, 60, 0.25);
+            font-size: 2rem;
+            font-weight: 400;
+            font-style: normal;
+            border-bottom: 1px solid rgba(140, 100, 50, 0.3);
             padding-bottom: 0.5rem;
             margin-top: 2.5rem;
         }
 
         .blog-post-scroll .blog-post-body h3 {
-            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-family: 'Pinyon Script', cursive;
             color: #3d2a10;
-            font-weight: 600;
-            font-style: italic;
+            font-weight: 400;
+            font-style: normal;
+            font-size: 1.6rem;
         }
 
         .blog-post-scroll .blog-post-body p {
@@ -514,9 +528,10 @@
             border-left: 3px solid #a8873e;
             background: rgba(168, 135, 62, 0.07);
             color: #3d2a10;
-            font-family: 'Cormorant Garamond', Georgia, serif;
-            font-style: italic;
-            font-size: 1.2rem;
+            font-family: 'Dancing Script', cursive;
+            font-style: normal;
+            font-size: 1.3rem;
+            font-weight: 600;
             padding: 1rem 1.5rem;
             margin: 1.5rem 1rem;
         }
@@ -556,17 +571,18 @@
 
         .scroll-byline {
             text-align: center;
-            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-family: 'Dancing Script', cursive;
             color: #6b4e24;
-            font-size: 1.1rem;
-            font-style: italic;
+            font-size: 1.15rem;
+            font-style: normal;
             margin-bottom: 1.5rem;
             letter-spacing: 0.03em;
         }
 
         .blog-post-scroll h1 {
-            font-family: 'Cormorant Garamond', Georgia, serif;
-            font-style: italic;
+            font-family: 'Pinyon Script', cursive;
+            font-style: normal;
+            font-weight: 400;
         }
 
         .scroll-title-wrap {
@@ -874,7 +890,7 @@
         titleEl.textContent = post.title;
         if (post.scroll) {
             titleWrap.className = 'scroll-title-wrap';
-            titleWrap.innerHTML = `<span class="scroll-feather">&#x1F4DC;</span><h1 id="postTitle" style="font-family:'Cormorant Garamond',Georgia,serif;font-style:italic;">${post.title}</h1><span class="scroll-feather" style="transform:none;">&#9998;</span>`;
+            titleWrap.innerHTML = `<span class="scroll-feather">&#x1F4DC;</span><h1 id="postTitle" style="font-family:'Pinyon Script',cursive;font-style:normal;font-weight:400;">${post.title}</h1><span class="scroll-feather" style="transform:none;">&#9998;</span>`;
         } else {
             titleWrap.className = '';
             titleWrap.innerHTML = `<h1 id="postTitle">${post.title}</h1>`;
