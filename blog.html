@@ -31,7 +31,7 @@
     <link rel="apple-touch-icon" href="/favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,600&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
     <style>
         *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -427,73 +427,73 @@
         /* ── Scroll / Whistledown Theme ── */
         .blog-post-scroll .blog-post-body {
             background:
-                linear-gradient(to bottom, rgba(180, 155, 110, 0.08) 0%, transparent 3%),
-                linear-gradient(to top, rgba(180, 155, 110, 0.08) 0%, transparent 3%),
-                linear-gradient(to right, rgba(180, 155, 110, 0.06) 0%, transparent 4%),
-                linear-gradient(to left, rgba(180, 155, 110, 0.06) 0%, transparent 4%),
-                repeating-linear-gradient(
-                    0deg,
-                    transparent,
-                    transparent 1.9em,
-                    rgba(180, 155, 110, 0.07) 1.9em,
-                    rgba(180, 155, 110, 0.07) 2em
-                ),
-                #f8f0e0;
+                /* Worn edges - darker staining around borders */
+                radial-gradient(ellipse at 0% 0%, rgba(120, 90, 40, 0.12) 0%, transparent 30%),
+                radial-gradient(ellipse at 100% 0%, rgba(130, 100, 50, 0.10) 0%, transparent 25%),
+                radial-gradient(ellipse at 0% 100%, rgba(130, 100, 50, 0.10) 0%, transparent 25%),
+                radial-gradient(ellipse at 100% 100%, rgba(120, 90, 40, 0.12) 0%, transparent 30%),
+                /* Age spots / foxing */
+                radial-gradient(circle at 15% 25%, rgba(160, 120, 60, 0.06) 0%, transparent 8%),
+                radial-gradient(circle at 72% 60%, rgba(160, 120, 60, 0.05) 0%, transparent 6%),
+                radial-gradient(circle at 85% 15%, rgba(160, 120, 60, 0.04) 0%, transparent 5%),
+                radial-gradient(circle at 30% 80%, rgba(160, 120, 60, 0.05) 0%, transparent 7%),
+                /* Uneven yellowing */
+                linear-gradient(170deg, #f5e6c8 0%, #f0dbb8 20%, #f3e2c5 40%, #ecdabc 60%, #f2e0c2 80%, #eedcbe 100%);
             border: none;
             border-radius: 2px;
             padding: 3rem 2.5rem;
             position: relative;
             box-shadow:
-                0 0 0 1px rgba(160, 130, 80, 0.15),
-                0 2px 20px rgba(120, 90, 40, 0.1),
-                inset 0 0 60px rgba(180, 155, 110, 0.08);
-            font-family: 'Playfair Display', Georgia, serif;
-            font-size: 1.08rem;
+                0 0 0 1px rgba(140, 110, 60, 0.2),
+                0 3px 25px rgba(100, 70, 30, 0.15),
+                inset 0 0 80px rgba(160, 130, 80, 0.1);
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-size: 1.15rem;
             line-height: 2;
-            color: #3a2f20;
+            color: #2e2310;
+            font-style: italic;
         }
 
         .blog-post-scroll .blog-post-body::before {
-            content: '';
-            position: absolute;
-            top: 8px;
-            left: 8px;
-            right: 8px;
-            bottom: 8px;
-            border: 1px solid rgba(180, 155, 110, 0.25);
-            border-radius: 1px;
-            pointer-events: none;
-        }
-
-        .blog-post-scroll .blog-post-body::after {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             right: 0;
             bottom: 0;
-            background:
-                radial-gradient(ellipse at 20% 0%, rgba(160, 130, 80, 0.06) 0%, transparent 50%),
-                radial-gradient(ellipse at 80% 100%, rgba(160, 130, 80, 0.06) 0%, transparent 50%),
-                radial-gradient(ellipse at 0% 50%, rgba(160, 130, 80, 0.04) 0%, transparent 40%),
-                radial-gradient(ellipse at 100% 50%, rgba(160, 130, 80, 0.04) 0%, transparent 40%);
+            /* Subtle noise/grain texture via CSS */
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+            pointer-events: none;
+            opacity: 0.5;
+        }
+
+        .blog-post-scroll .blog-post-body::after {
+            content: '';
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            right: 12px;
+            bottom: 12px;
+            border: 1px solid rgba(160, 120, 60, 0.18);
             pointer-events: none;
         }
 
         .blog-post-scroll .blog-post-body h2 {
-            font-family: 'Playfair Display', Georgia, serif;
-            color: #4a3517;
-            font-size: 1.5rem;
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            color: #3d2a10;
+            font-size: 1.6rem;
             font-weight: 600;
-            border-bottom: 1px solid rgba(180, 155, 110, 0.3);
+            font-style: italic;
+            border-bottom: 1px solid rgba(160, 120, 60, 0.25);
             padding-bottom: 0.5rem;
             margin-top: 2.5rem;
         }
 
         .blog-post-scroll .blog-post-body h3 {
-            font-family: 'Playfair Display', Georgia, serif;
-            color: #4a3517;
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            color: #3d2a10;
             font-weight: 600;
+            font-style: italic;
         }
 
         .blog-post-scroll .blog-post-body p {
@@ -511,30 +511,30 @@
         }
 
         .blog-post-scroll .blog-post-body blockquote {
-            border-left: 3px solid #b89a56;
-            background: rgba(184, 154, 86, 0.08);
-            color: #4a3517;
-            font-family: 'Playfair Display', Georgia, serif;
+            border-left: 3px solid #a8873e;
+            background: rgba(168, 135, 62, 0.07);
+            color: #3d2a10;
+            font-family: 'Cormorant Garamond', Georgia, serif;
             font-style: italic;
+            font-size: 1.2rem;
             padding: 1rem 1.5rem;
             margin: 1.5rem 1rem;
         }
 
         .blog-post-scroll .blog-post-body em {
-            color: #6b4e24;
-            font-style: italic;
+            color: #4a3518;
         }
 
         .blog-post-scroll .blog-post-body img {
-            border-radius: 4px;
-            box-shadow: 0 2px 10px rgba(100, 80, 40, 0.15);
-            border: 1px solid rgba(180, 155, 110, 0.2);
+            border-radius: 2px;
+            box-shadow: 0 2px 12px rgba(80, 60, 20, 0.2);
+            border: 3px solid rgba(200, 180, 140, 0.4);
         }
 
         .blog-post-scroll .blog-post-body .scroll-ornament {
             text-align: center;
             font-size: 1.3rem;
-            color: #b89a56;
+            color: #a8873e;
             margin: 2rem 0;
             letter-spacing: 0.5rem;
         }
@@ -542,11 +542,11 @@
         .blog-post-scroll .blog-post-body .scroll-signoff {
             margin-top: 2.5rem;
             padding-top: 1.5rem;
-            border-top: 1px solid rgba(180, 155, 110, 0.3);
+            border-top: 1px solid rgba(160, 120, 60, 0.25);
             text-align: right;
             font-style: italic;
-            color: #6b4e24;
-            font-size: 1.1rem;
+            color: #4a3518;
+            font-size: 1.2rem;
             text-indent: 0;
         }
 
@@ -556,12 +556,17 @@
 
         .scroll-byline {
             text-align: center;
-            font-family: 'Playfair Display', Georgia, serif;
-            color: #7a5c2e;
-            font-size: 1rem;
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            color: #6b4e24;
+            font-size: 1.1rem;
             font-style: italic;
             margin-bottom: 1.5rem;
             letter-spacing: 0.03em;
+        }
+
+        .blog-post-scroll h1 {
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-style: italic;
         }
 
         /* ── Footer ── */
