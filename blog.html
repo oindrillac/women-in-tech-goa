@@ -427,16 +427,16 @@
         /* ── Scroll / Whistledown Theme ── */
         .blog-post-scroll .blog-post-body {
             background:
-                /* Burnt / darkened edges — like a scroll singed at the borders */
-                radial-gradient(ellipse at 0% 0%, rgba(60, 35, 5, 0.4) 0%, transparent 40%),
-                radial-gradient(ellipse at 100% 0%, rgba(70, 40, 10, 0.35) 0%, transparent 35%),
-                radial-gradient(ellipse at 0% 100%, rgba(70, 40, 10, 0.35) 0%, transparent 35%),
-                radial-gradient(ellipse at 100% 100%, rgba(60, 35, 5, 0.4) 0%, transparent 40%),
-                /* Edge darkening all sides — heavy vignette */
-                linear-gradient(to bottom, rgba(50, 30, 5, 0.2) 0%, transparent 12%),
-                linear-gradient(to top, rgba(50, 30, 5, 0.2) 0%, transparent 12%),
-                linear-gradient(to right, rgba(50, 30, 5, 0.12) 0%, transparent 8%),
-                linear-gradient(to left, rgba(50, 30, 5, 0.12) 0%, transparent 8%),
+                /* Worn edges — darkened corners */
+                radial-gradient(ellipse at 0% 0%, rgba(80, 55, 20, 0.25) 0%, transparent 35%),
+                radial-gradient(ellipse at 100% 0%, rgba(90, 60, 25, 0.20) 0%, transparent 30%),
+                radial-gradient(ellipse at 0% 100%, rgba(90, 60, 25, 0.20) 0%, transparent 30%),
+                radial-gradient(ellipse at 100% 100%, rgba(80, 55, 20, 0.25) 0%, transparent 35%),
+                /* Edge darkening all sides — subtle vignette */
+                linear-gradient(to bottom, rgba(70, 45, 15, 0.12) 0%, transparent 10%),
+                linear-gradient(to top, rgba(70, 45, 15, 0.12) 0%, transparent 10%),
+                linear-gradient(to right, rgba(70, 45, 15, 0.08) 0%, transparent 6%),
+                linear-gradient(to left, rgba(70, 45, 15, 0.08) 0%, transparent 6%),
                 /* Crease / fold lines — more visible */
                 linear-gradient(to right, transparent 49%, rgba(100, 70, 25, 0.15) 49.6%, rgba(100, 70, 25, 0.2) 50%, rgba(100, 70, 25, 0.15) 50.4%, transparent 51%),
                 linear-gradient(to bottom, transparent 31%, rgba(100, 70, 25, 0.12) 32%, transparent 33%, transparent 64%, rgba(100, 70, 25, 0.12) 65%, transparent 66%),
@@ -456,8 +456,8 @@
                 radial-gradient(circle at 80% 35%, rgba(120, 80, 20, 0.09) 0%, transparent 3%),
                 radial-gradient(circle at 15% 42%, rgba(120, 80, 20, 0.08) 0%, transparent 2.5%),
                 radial-gradient(circle at 45% 60%, rgba(120, 80, 20, 0.07) 0%, transparent 2%),
-                /* Uneven yellowing — patchy, aged */
-                linear-gradient(170deg, #e2cc96 0%, #d9c08a 15%, #e5d0a0 30%, #d4b880 50%, #e0c898 70%, #d6bc85 85%, #dcc490 100%);
+                /* Uneven yellowing — lighter, warmer parchment */
+                linear-gradient(170deg, #f2e4c1 0%, #ecdab3 15%, #f0e0be 30%, #e8d4aa 50%, #efdcb8 70%, #e9d6ae 85%, #f1dfbc 100%);
             border: none;
             border-radius: 0;
             padding: 3.5rem 3rem;
@@ -465,12 +465,12 @@
             box-shadow:
                 0 0 0 1px rgba(100, 70, 20, 0.4),
                 0 6px 40px rgba(60, 35, 5, 0.3),
-                inset 0 0 120px rgba(120, 90, 40, 0.2);
+                inset 0 0 80px rgba(120, 90, 40, 0.12);
             font-family: 'Cormorant Garamond', Georgia, serif;
             font-size: 1.15rem;
             font-weight: 400;
             line-height: 2;
-            color: #2a1d0a;
+            color: #1a1005;
             font-style: italic;
         }
 
@@ -501,7 +501,7 @@
 
         .blog-post-scroll .blog-post-body h2 {
             font-family: 'Pinyon Script', cursive;
-            color: #3d2a10;
+            color: #1a1005;
             font-size: 2rem;
             font-weight: 400;
             font-style: normal;
@@ -512,7 +512,7 @@
 
         .blog-post-scroll .blog-post-body h3 {
             font-family: 'Pinyon Script', cursive;
-            color: #3d2a10;
+            color: #1a1005;
             font-weight: 400;
             font-style: normal;
             font-size: 1.6rem;
@@ -535,7 +535,7 @@
         .blog-post-scroll .blog-post-body blockquote {
             border-left: 3px solid #a8873e;
             background: rgba(168, 135, 62, 0.07);
-            color: #3d2a10;
+            color: #1a1005;
             font-family: 'Cormorant Garamond', Georgia, serif;
             font-style: italic;
             font-size: 1.2rem;
@@ -545,7 +545,7 @@
         }
 
         .blog-post-scroll .blog-post-body em {
-            color: #4a3518;
+            color: #1a1005;
         }
 
         .blog-post-scroll .blog-post-body img {
@@ -568,7 +568,7 @@
             border-top: 1px solid rgba(160, 120, 60, 0.25);
             text-align: right;
             font-style: italic;
-            color: #4a3518;
+            color: #1a1005;
             font-size: 1.2rem;
             text-indent: 0;
         }
