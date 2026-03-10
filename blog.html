@@ -424,6 +424,91 @@
             margin: 1.5rem 0;
         }
 
+        /* ── Scroll / Whistledown Theme ── */
+        .blog-post-scroll .blog-post-body {
+            background: #fdf8f0;
+            border: 1px solid #e8dcc8;
+            border-radius: 4px;
+            padding: 2.5rem 2rem;
+            position: relative;
+            box-shadow: 0 2px 12px rgba(139, 119, 82, 0.08);
+            font-family: 'DM Serif Display', Georgia, serif;
+            font-size: 1.1rem;
+            line-height: 1.9;
+            color: #3a2f20;
+        }
+
+        .blog-post-scroll .blog-post-body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, #c9a96e, transparent);
+        }
+
+        .blog-post-scroll .blog-post-body::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, #c9a96e, transparent);
+        }
+
+        .blog-post-scroll .blog-post-body h2 {
+            font-family: 'DM Serif Display', Georgia, serif;
+            color: #5a3e1b;
+            font-size: 1.4rem;
+            border-bottom: 1px solid #e0d4be;
+            padding-bottom: 0.4rem;
+        }
+
+        .blog-post-scroll .blog-post-body h3 {
+            font-family: 'DM Serif Display', Georgia, serif;
+            color: #5a3e1b;
+        }
+
+        .blog-post-scroll .blog-post-body blockquote {
+            border-left: 3px solid #c9a96e;
+            background: #f7f0e2;
+            color: #5a3e1b;
+            font-family: 'DM Serif Display', Georgia, serif;
+        }
+
+        .blog-post-scroll .blog-post-body em {
+            color: #7a5c2e;
+        }
+
+        .blog-post-scroll .blog-post-body .scroll-ornament {
+            text-align: center;
+            font-size: 1.5rem;
+            color: #c9a96e;
+            margin: 2rem 0;
+            letter-spacing: 0.5rem;
+        }
+
+        .blog-post-scroll .blog-post-body .scroll-signoff {
+            margin-top: 2.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #e0d4be;
+            text-align: right;
+            font-style: italic;
+            color: #7a5c2e;
+        }
+
+        .scroll-byline {
+            text-align: center;
+            font-family: 'DM Serif Display', Georgia, serif;
+            color: #7a5c2e;
+            font-size: 0.95rem;
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            letter-spacing: 0.02em;
+        }
+
         /* ── Footer ── */
         footer {
             border-top: 1px solid var(--border);
@@ -538,6 +623,7 @@
     <div class="blog-post-meta" id="postMeta"></div>
     <img class="blog-post-cover" id="postCover" src="" alt="">
     <h1 id="postTitle"></h1>
+    <div id="postByline" class="scroll-byline" style="display:none;"></div>
     <div id="postAuthor"></div>
     <div class="blog-post-body" id="postBody"></div>
 </div>
@@ -565,14 +651,75 @@
     const BLOGS = [
         {
             slug: 'first-meetup-verna',
-            title: 'Our First Meetup: How It All Started',
+            title: 'WittyG Women\'s Day Edition',
             date: 'March 8, 2026',
-            tag: 'Meetup',
-            author: { name: 'WiTG' },
-            excerpt: 'Coming soon.',
+            tag: 'Meetup Dispatch',
+            author: { name: 'WittyG Whistledown' },
+            excerpt: 'One is pleased to report that the first gathering of WiTG proved far more spirited than one might have anticipated.',
             image: 'images/meet-1/web/group-photo.jpg',
+            scroll: true,
             body: `
-                <p>Coming soon.</p>
+                <div class="scroll-ornament">&mdash; &#10049; &mdash;</div>
+
+                <p><em>Dearest Gentle Reader,</em></p>
+
+                <p>One is pleased to report that the first gathering of WiTG proved far more spirited than one might have anticipated. What began as a simple assembly soon revealed itself to be a lively constellation of bright minds, fresh ambition, and a rather contagious sense of curiosity.</p>
+
+                <p>A particularly striking feature of the evening was the unmistakable presence of youthful energy. Many in attendance appeared to be navigating the thrilling and occasionally bewildering world of their very first jobs after college. Questions flowed freely, ideas were exchanged with enthusiasm, and the room carried the unmistakable hum of people only just beginning to discover what they are capable of.</p>
+
+                <p>Yet, dear reader, youthful curiosity was not the only force in the room. Hidden among the crowd were also a few quietly formidable minds. Two accomplished doctorates in molecular biology had joined the gathering, lending the evening a certain intellectual sparkle. One could almost imagine the molecules themselves feeling slightly intimidated.</p>
+
+                <img src="images/meet-1/web/blog1-introduction.jpg" alt="WiTG members introducing themselves at the first meetup">
+
+                <h2>A Board Filled with Possibilities</h2>
+
+                <p>At one point, the room was presented with a simple yet revealing exercise. Each participant was asked to reflect on two matters. What might they need help with, and where could they lend their own expertise?</p>
+
+                <p>What followed was rather delightful. Post-its began appearing with impressive speed, gradually transforming the board into a colourful landscape of possibilities. Clearly, this was no ordinary room of professionals. It was the early outline of a community quietly discovering its own strength.</p>
+
+                <p>The founders' team has now taken on the rather pleasant task of connecting those seeking guidance with those ready to offer it. One suspects that several fruitful collaborations may soon emerge from this promising beginning.</p>
+
+                <img src="images/meet-1/web/blog1-help-board.jpg" alt="The help board filled with post-it notes from WiTG members">
+
+                <h2>The Matter of Asking Boldly</h2>
+
+                <p>No gathering of thoughtful women would be complete without addressing a matter that deserves far more attention than it often receives. The art of asking for what one truly deserves.</p>
+
+                <p>Conversation soon turned to the familiar territory of appraisals, promotions, and negotiations during job interviews. The sentiment in the room was refreshingly clear.</p>
+
+                <blockquote>When merit is evident, one must ask with confidence and without apology.</blockquote>
+
+                <p>Yet the evening did not spare those who sit on the other side of the hiring table. For managers responsible for building teams, a useful reminder surfaced. Clarity in job descriptions is not merely helpful. It is essential. And when that clarity is missing, questions must be asked.</p>
+
+                <p>As this author rather firmly believes:</p>
+
+                <blockquote>Only measurable success is recognised success.</blockquote>
+
+                <h2>A Test of Wit</h2>
+
+                <p>Just when one believed the evening could grow no more intellectually stimulating, the gathering introduced a quiz. And what a quiz it turned out to be.</p>
+
+                <p>If intellectual enthusiasm could be measured, the score would comfortably rest at 12 out of 10. The room revealed itself to be filled with formidable trivia enthusiasts, each eager to prove that their general knowledge had not entirely deserted them.</p>
+
+                <img src="images/meet-1/web/blog1-quiz.jpg" alt="The quiz round at WiTG's first meetup">
+
+                <p>Among the evening's most admirable participants was a mother of two who arrived with her toddlers in tow. While some might have considered this a logistical challenge, she appeared to glide through the evening with enviable ease. During the quiz she calmly reminded the room what <em>marsupials</em> are, a term many of us vaguely remembered from distant general knowledge lessons but had clearly misplaced somewhere along the way.</p>
+
+                <h2>The Author's Final Observations</h2>
+
+                <p>As the evening drew toward its close, the room seemed reluctant to let the conversations end. A touch of bachata appeared toward the end, adding a playful rhythm to the gathering before the evening finally took its bow.</p>
+
+                <img src="images/meet-1/web/blog1-voting.jpg" alt="Members voting at the WiTG meetup">
+
+                <p>And if the cheerful chatter and animated goodbyes were any indication, this was merely the beginning. One suspects the next gathering may become rather difficult to miss, dear reader.</p>
+
+                <p>Until then, one shall be observing with great interest.</p>
+
+                <div class="scroll-signoff">
+                    <p><em>Yours sincerely,</em><br>WittyG Whistledown</p>
+                </div>
+
+                <div class="scroll-ornament">&mdash; &#10049; &mdash;</div>
             `
         }
     ];
@@ -633,6 +780,17 @@
         document.getElementById('postCover').alt = post.title;
         document.getElementById('postTitle').textContent = post.title;
         document.getElementById('postBody').innerHTML = post.body;
+
+        // Apply scroll theme if post has scroll: true
+        const byline = document.getElementById('postByline');
+        if (post.scroll) {
+            blogPost.classList.add('blog-post-scroll');
+            byline.textContent = 'A dispatch by ' + (post.author ? post.author.name : 'Anonymous');
+            byline.style.display = 'block';
+        } else {
+            blogPost.classList.remove('blog-post-scroll');
+            byline.style.display = 'none';
+        }
 
         blogListing.style.display = 'none';
         blogPost.classList.add('visible');
